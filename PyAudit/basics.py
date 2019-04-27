@@ -1,53 +1,48 @@
 import numpy as np
+import pandas as pd
 from scipy.stats import norm
-   
-def rnorm(n, mean=0, sd=1):
+
+
+def missing_rate(df_in):
     """
-    Random generation for the normal distribution with mean 
-    equal to mean and standard deviation equation to sd
-    same functions as rnorm in r: ``rnorm(n, mean=0, sd=1)``
+    calculate missing rate for each feature in the DataFrame
 
-    :param n: the number of the observations
-    :param mean: vector of means
-    :param sd: vector of standard deviations
-    :return: the vector of the random numbers  
+    :param df_in: input pandas DataFrame
+    :return: missing rate
 
-    :author: Wenqiang Feng
+    :author: Wenqiang Feng and Ming Chen
     :email:  von198@gmail.com
     """
-    return norm.rvs(loc=mean, scale=sd, size=n)
 
-def dnorm(x, mean=0, sd=1, log=False):
+    rate = df_in.isnull().sum() / df_in.shape[0]
+    # rename the column
+    percentage_miss = pd.DataFrame(rate).reset_index()\
+                        .rename(columns={'index': 'feature', 0: 'missing_rate'})
+
+    return percentage_miss
+
+
+def zero_rate(df_in):
     """
-    Density of the normal distribution with mean 
-    equal to mean and standard deviation equation to sd
-    same functions as rnorm in r: ``dnorm(x, mean=0, sd=1, log=FALSE)``
+    calculate the percentage of 0 value for each feature in the DataFrame
 
-    :param x: the vector od quantiles
-    :param mean: vector of means
-    :param sd: vector of standard deviations
-    :return: the list of the density  
+    :param df_in: input pandas DataFrame
+    :return: zero rate
 
-    :author: Wenqiang Feng
-    :email:  von198@gmail.com    
+    :author: Wenqiang Feng and Ming Chen
+    :email:  von198@gmail.com
     """
-    if log:
-        return np.log(norm.pdf(x=x, loc=mean, scale=sd))
-    else:
-        return norm.pdf(x=x, loc=mean, scale=sd)
 
-def runif(n, min=0, max=1):
-    """
-    Random generation from the uniform distribution
-    same functions as rnorm in r: ``runif(n, min=0, max=1)``
+    rate = ((df_in == 0).sum(axis=0)) / df_in.shape[0]
+    # rename the column
+    percentage_zero = pd.DataFrame(rate).reset_index()\
+                        .rename(columns={'index': 'feature', 0: 'zero_rate'})
 
-    :param n: the number of the observations
-    :param min: the lower limit of the distribution 
-    :param max: the upper limit of the distribution
-    :return: the list of n uniform random numers 
+    return percentage_zero
 
-    :author: Wenqiang Feng
-    :email:  von198@gmail.com  
-    """
-    return np.random.uniform(min, max, size=n)
+
+
+
+
+
 

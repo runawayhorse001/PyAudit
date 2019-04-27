@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3. Statistics Python Functions &mdash; Python Data Audit Library API 1.00 documentation</title>
+  <title>3. Basics Python Audit Functions &mdash; Python Data Audit Library API 1.00 documentation</title>
   
 
   
@@ -90,10 +90,9 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="preface.html">1. Preface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">2. How to Install</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Statistics Python Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-statspy.basics">3.1. <code class="docutils literal notranslate"><span class="pre">rnorm</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dnorm">3.2. <code class="docutils literal notranslate"><span class="pre">dnorm</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#runif">3.3. <code class="docutils literal notranslate"><span class="pre">runif</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Basics Python Audit Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-PyAudit.basics">3.1. <code class="docutils literal notranslate"><span class="pre">missing_rate</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-PyAudit.basics">3.2. <code class="docutils literal notranslate"><span class="pre">zero_rate</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tests.html">4. Hypothesis Testing Basics</a></li>
@@ -144,7 +143,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>3. Statistics Python Functions</li>
+      <li>3. Basics Python Audit Functions</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -165,100 +164,48 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="statistics-python-functions">
-<span id="basics"></span><h1>3. Statistics Python Functions<a class="headerlink" href="#statistics-python-functions" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-statspy.basics">
-<span id="rnorm"></span><h2>3.1. <code class="docutils literal notranslate"><span class="pre">rnorm</span></code><a class="headerlink" href="#module-statspy.basics" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="basics-python-audit-functions">
+<span id="basics"></span><h1>3. Basics Python Audit Functions<a class="headerlink" href="#basics-python-audit-functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-PyAudit.basics">
+<span id="missing-rate"></span><h2>3.2. <code class="docutils literal notranslate"><span class="pre">missing_rate</span></code><a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="statspy.basics.rnorm">
-<code class="descclassname">statspy.basics.</code><code class="descname">rnorm</code><span class="sig-paren">(</span><em>n</em>, <em>mean=0</em>, <em>sd=1</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/../../../.local/lib/python3.6/site-packages/statspy-1.0-py3.6.egg/statspy/basics.py#L4-L18"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#statspy.basics.rnorm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Random generation for the normal distribution with mean
-equal to mean and standard deviation equation to sd
-same functions as rnorm in r: <code class="docutils literal notranslate"><span class="pre">rnorm(n,</span> <span class="pre">mean=0,</span> <span class="pre">sd=1)</span></code></p>
+<dt id="PyAudit.basics.missing_rate">
+<code class="descclassname">PyAudit.basics.</code><code class="descname">missing_rate</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L6-L22"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.missing_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate missing rate for each feature in the DataFrame</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>n</strong> – the number of the observations</li>
-<li><strong>mean</strong> – vector of means</li>
-<li><strong>sd</strong> – vector of standard deviations</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>df_in</strong> – input pandas DataFrame</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the vector of the random numbers</p>
-</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">missing rate</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body"><p class="first">Wenqiang Feng</p>
-</td>
+<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">Wenqiang Feng and Ming Chen</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Email:</th><td class="field-body"><p class="first last"><a class="reference external" href="mailto:von198&#37;&#52;&#48;gmail&#46;com">von198<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
-</td>
+<tr class="field-even field"><th class="field-name">Email:</th><td class="field-body"><a class="reference external" href="mailto:von198&#37;&#52;&#48;gmail&#46;com">von198<span>&#64;</span>gmail<span>&#46;</span>com</a></td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 </div>
-<div class="section" id="dnorm">
-<h2>3.2. <code class="docutils literal notranslate"><span class="pre">dnorm</span></code><a class="headerlink" href="#dnorm" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-PyAudit.basics">
+<span id="zero-rate"></span><h2>3.2. <code class="docutils literal notranslate"><span class="pre">zero_rate</span></code><a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt>
-<code class="descclassname">statspy.basics.</code><code class="descname">dnorm</code><span class="sig-paren">(</span><em>x</em>, <em>mean=0</em>, <em>sd=1</em>, <em>log=False</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/../../../.local/lib/python3.6/site-packages/statspy-1.0-py3.6.egg/statspy/basics.py#L20-L37"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Density of the normal distribution with mean
-equal to mean and standard deviation equation to sd
-same functions as rnorm in r: <code class="docutils literal notranslate"><span class="pre">dnorm(x,</span> <span class="pre">mean=0,</span> <span class="pre">sd=1,</span> <span class="pre">log=FALSE)</span></code></p>
+<dt id="PyAudit.basics.zero_rate">
+<code class="descclassname">PyAudit.basics.</code><code class="descname">zero_rate</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L25-L41"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.zero_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the percentage of 0 value for each feature in the DataFrame</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> – the vector od quantiles</li>
-<li><strong>mean</strong> – vector of means</li>
-<li><strong>sd</strong> – vector of standard deviations</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>df_in</strong> – input pandas DataFrame</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the list of the density</p>
-</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">zero rate</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body"><p class="first">Wenqiang Feng</p>
-</td>
+<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">Wenqiang Feng and Ming Chen</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Email:</th><td class="field-body"><p class="first last"><a class="reference external" href="mailto:von198&#37;&#52;&#48;gmail&#46;com">von198<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</div>
-<div class="section" id="runif">
-<h2>3.3. <code class="docutils literal notranslate"><span class="pre">runif</span></code><a class="headerlink" href="#runif" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt>
-<code class="descclassname">statspy.basics.</code><code class="descname">runif</code><span class="sig-paren">(</span><em>n</em>, <em>min=0</em>, <em>max=1</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/../../../.local/lib/python3.6/site-packages/statspy-1.0-py3.6.egg/statspy/basics.py#L39-L52"><span class="viewcode-link">[source]</span></a></dt>
-<dd><p>Random generation from the uniform distribution
-same functions as rnorm in r: <code class="docutils literal notranslate"><span class="pre">runif(n,</span> <span class="pre">min=0,</span> <span class="pre">max=1)</span></code></p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>n</strong> – the number of the observations</li>
-<li><strong>min</strong> – the lower limit of the distribution</li>
-<li><strong>max</strong> – the upper limit of the distribution</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the list of n uniform random numers</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body"><p class="first">Wenqiang Feng</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Email:</th><td class="field-body"><p class="first last"><a class="reference external" href="mailto:von198&#37;&#52;&#48;gmail&#46;com">von198<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
-</td>
+<tr class="field-even field"><th class="field-name">Email:</th><td class="field-body"><a class="reference external" href="mailto:von198&#37;&#52;&#48;gmail&#46;com">von198<span>&#64;</span>gmail<span>&#46;</span>com</a></td>
 </tr>
 </tbody>
 </table>

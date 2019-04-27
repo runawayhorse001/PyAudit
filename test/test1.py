@@ -1,12 +1,27 @@
-from statspy.basics	import rnorm
-from statspy.tests import t_test
+from PyAudit.basics	import missing_rate, zero_rate
 
-# rnorm demo
-n = 10 
+import pandas as pd
 
-y = rnorm(n)
-print(y)
+d = {'A': [1, 0, None, 3],
+     'B': [1, 0, 0, 0],
+     'C': ['a', None, 'c', 'd']}
 
-# t.test demo
-y = [1,2,3,4]
-t_test(y)
+# create DataFrame
+df = pd.DataFrame(d)
+print(missing_rate(df))
+print(zero_rate(df))
+
+
+
+# read df
+df = pd.read_csv('Heart.csv')
+print(df.head(5))
+
+print(missing_rate(df))
+print(zero_rate(df))
+
+df_num = df[['Age', 'Ca']]
+
+
+
+

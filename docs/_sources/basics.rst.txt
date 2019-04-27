@@ -1,27 +1,18 @@
 .. _basics:
 
-===========================
-Statistics Python Functions 
-===========================
+=============================
+Basics Python Audit Functions 
+=============================
 
-``rnorm``
-+++++++++
+``missing_rate``
+++++++++++++++++
 
-.. automodule:: statspy.basics	
-   :members: rnorm
-
-
-``dnorm``
-+++++++++
-
-.. automodule:: statspy.basics	
-   :members: dnorm
-   :noindex:   
+.. automodule:: PyAudit.basics	
+   :members: missing_rate
 
 
-``runif``
-+++++++++
+``zero_rate``
+++++++++++++++++
 
-.. automodule:: statspy.basics	
-   :members: runif
-   :noindex:   
+.. automodule:: PyAudit.basics	
+   :members: zero_rate
