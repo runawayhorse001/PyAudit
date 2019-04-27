@@ -17,7 +17,7 @@ Clone the Repository
 
 .. code-block:: bash
 
-	git clone git@github.com:runawayhorse001/statspy.git
+	git clone https://github.com/runawayhorse001/PyAudit.git
 
 
 Install
@@ -25,7 +25,7 @@ Install
 
 .. code-block:: bash
 
-	cd statspy
+	cd PyAudit
 	pip install -r requirements.txt 
 	python setup.py install
 
@@ -41,7 +41,7 @@ Test
 
 .. code-block:: bash
 
-	cd statspy/test
+	cd PyAudit/test
 	python test1.py
 
 

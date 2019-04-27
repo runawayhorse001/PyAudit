@@ -12,14 +12,14 @@ git https://github.com/runawayhorse001/PyAudit.git
 - install 
 
 ```{bash}
-cd statspy
+cd PyAudit
 pip install -r requirements.txt 
 python setup.py install
 ```
 - uninstall 
 
 ```{bash}
-pip uninstall statspy
+pip uninstall PyAudit
 ```
 
 - test 

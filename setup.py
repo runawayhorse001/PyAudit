@@ -12,13 +12,13 @@ try:
 except IOError:
     requirements = []
 
-setup(name='statspy',
+setup(name='PyAudit',
 	  install_requires=requirements,
       version='1.0',
-      description='Statistics python library',
-      author='Wenqiang Feng',
+      description='Python Data Audit library',
+      author='Wenqiang Feng and Ming Chen',
       author_email='von198@gmail.com',
-      url='git@github.com:runawayhorse001/statspy.git',
+      url='https://github.com/runawayhorse001/PyAudit.git',
       packages=find_packages(),
       long_description=long_description
      )

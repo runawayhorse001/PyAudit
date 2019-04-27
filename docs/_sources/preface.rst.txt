@@ -36,7 +36,7 @@ About the author
 
 * **Wenqiang Feng** 
 	
-  * Data Scientist and PhD in Mathematics 
+  * Sr. Data Scientist and PhD in Mathematics 
   * University of Tennessee at Knoxville
   * Webpage: http://web.utk.edu/~wfeng1/
   * Email: von198@gmail.com
