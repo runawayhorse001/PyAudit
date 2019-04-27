@@ -283,12 +283,12 @@ latex_elements = {
 # (source start file, target name, title, author, document class
 # [howto/manual]).
 latex_documents = [
-  ('index', 'statspy.tex', 'Python Data Audit  Library API',
+  ('index', 'PyAudit.tex', 'Python Data Audit  Library API',
    'Wenqiang Feng and Ming Chen', 'manual'),
 ]
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
-#latex_logo = 'images/logo.png'
+latex_logo = 'images/logo.png'
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
 #latex_logo = 'images/snake_theta2-trans.png'

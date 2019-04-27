@@ -17,7 +17,7 @@ About
 About this API
 --------------
 
-This document is the |api| for my Statistics Python Library [statspy]_ API. The PDF version can be downloaded from `HERE <statspy.pdf>`_. **You may download and distribute it. Please be aware, however, that the note contains typos as well as inaccurate or incorrect description.** 
+This document is the |api| for Our Python Data Audit Library [PyAudit]_ API. The PDF version can be downloaded from `HERE <PyAudit.pdf>`_. **You may download and distribute it. Please be aware, however, that the note contains typos as well as inaccurate or incorrect description.** 
 
 In this repository, I try to use the detailed demo code and 
 examples to show how to use ``Sphinx`` to generate the ``.html`` and ``.pdf`` documents and how to hookup them automatically on ``Github``. If you find your work wasn’t cited in this note, please feel free to let me know.
@@ -40,6 +40,12 @@ About the author
   * University of Tennessee at Knoxville
   * Webpage: http://web.utk.edu/~wfeng1/
   * Email: von198@gmail.com
+
+* **Ming Chen** 
+  
+  * Data Scientist and PhD in Genome Science and Technology 
+  * University of Tennessee at Knoxville
+  * Email: ming.chen0919@gmail.com    
 
 * **Biography**
 

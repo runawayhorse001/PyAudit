@@ -4,5 +4,5 @@
 Main Reference 
 ==============
 
-.. [statspy] Wenqiang Feng. `Statistics Python Library API <https://runawayhorse001.github.io/statspy>`_.
+.. [PyAudit] Wenqiang Feng and Ming Chen. `Python Data Audit Library API <https://runawayhorse001.github.io/PyAudit/>`_.
 

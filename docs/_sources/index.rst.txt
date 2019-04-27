@@ -5,7 +5,7 @@
   .. figure:: images/logo.png
     :align: center
 
-Welcome to my **Statistics Python Library API**! The PDF version can be downloaded from `HERE <statspy.pdf>`_.
+Welcome to Our **Python Data Audit Library API**! The PDF version can be downloaded from `HERE <PyAudit.pdf>`_.
 
 ========
 Contents

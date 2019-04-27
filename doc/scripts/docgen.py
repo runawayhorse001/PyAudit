@@ -121,7 +121,7 @@ if __name__ == '__main__':
             os.chdir(workdir)
             os.system('make')
             try:
-                shutil.copy(os.path.join(workdir, 'statspy.pdf'), outdir)
+                shutil.copy(os.path.join(workdir, 'PyAudit.pdf'), outdir)
                 os.chdir(outdir)
                 # remove the workdir folder
                 shutil.rmtree(workdir)
