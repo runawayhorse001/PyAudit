@@ -35,7 +35,6 @@ def dtypes_class(df_in):
     quant_fields = all_types[all_types['class'] == 'num']['feature'].tolist()
     quanl_fields = all_types[all_types['class'] == 'cat']['feature'].tolist()
     bool_fields = all_types[all_types['class'] == 'bool']['feature'].tolist()
-
     return quant_fields, quanl_fields, bool_fields, data_types
 
 
@@ -54,7 +53,6 @@ def missing_rate(df_in):
     # rename the column
     percentage_miss = pd.DataFrame(rate).reset_index()\
                         .rename(columns={'index': 'feature', 0: 'missing_rate'})
-
     return percentage_miss
 
 
@@ -73,7 +71,6 @@ def zero_rate(df_in):
     # rename the column
     percentage_zero = pd.DataFrame(rate).reset_index()\
                         .rename(columns={'index': 'feature', 0: 'zero_rate'})
-
     return percentage_zero
 
 
