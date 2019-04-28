@@ -6,7 +6,7 @@ Demos
 .. |eg| replace:: For example:
 
 
-This is a usage of :func:`statspy.basics.rnorm`:
+This is a usage of :func:`PyAudit.basics.dtypes_class`:
 
 
 |eg|
