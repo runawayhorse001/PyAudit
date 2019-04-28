@@ -92,9 +92,9 @@ copyright = '2019, Wenqiang Feng and Ming Chen'
 # We need this hokey-pokey because versioneer needs the current
 # directory to be the root of the project to work.
 # The short X.Y version.
-version = '1.00'
+#version = '1.00'
 # The full version, including alpha/beta/rc tags.
-release = '1.00'
+#release = '1.00'
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
