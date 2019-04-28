@@ -18,7 +18,6 @@ Contents
    preface
    install
    basics
-   tests
    demo
    reference
 

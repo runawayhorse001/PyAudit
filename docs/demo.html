@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>5. Demos &mdash; Python Data Audit Library API 1.00 documentation</title>
+  <title>4. Demos &mdash; Python Data Audit Library API 1.00 documentation</title>
   
 
   
@@ -38,8 +38,8 @@
   <link rel="stylesheet" href="_static/fix_rtd.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="6. Main Reference" href="reference.html" />
-    <link rel="prev" title="4. Hypothesis Testing Basics" href="tests.html" /> 
+    <link rel="next" title="5. Main Reference" href="reference.html" />
+    <link rel="prev" title="3. Python Data Audit Functions" href="basics.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -91,9 +91,8 @@
 <li class="toctree-l1"><a class="reference internal" href="preface.html">1. Preface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">2. How to Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basics.html">3. Python Data Audit Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tests.html">4. Hypothesis Testing Basics</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Demos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">6. Main Reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">5. Main Reference</a></li>
 </ul>
 
             
@@ -139,7 +138,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>5. Demos</li>
+      <li>4. Demos</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -161,14 +160,45 @@
            <div itemprop="articleBody">
             
   <div class="section" id="demos">
-<span id="demo"></span><h1>5. Demos<a class="headerlink" href="#demos" title="Permalink to this headline">¶</a></h1>
+<span id="demo"></span><h1>4. Demos<a class="headerlink" href="#demos" title="Permalink to this headline">¶</a></h1>
 <p>This is a usage of <code class="xref py py-func docutils literal notranslate"><span class="pre">statspy.basics.rnorm()</span></code>:</p>
 <p>For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">statspy.basics</span> <span class="k">import</span> <span class="n">rnorm</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="o">=</span><span class="mi">10</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="go">array([ 1.54900276, -0.43444174, -0.44135064,  0.61153345, -0.31411333,</span>
-<span class="go">       -0.17855692, -0.35912669, -0.1131763 ,  1.64094882, -1.66553673])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">PyAudit.basics</span> <span class="k">import</span> <span class="n">missing_rate</span><span class="p">,</span> <span class="n">zero_rate</span><span class="p">,</span> <span class="n">dtypes_class</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Heart.csv&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Sex&#39;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">num_fields</span><span class="p">,</span> <span class="n">cat_fields</span><span class="p">,</span> <span class="n">bool_fields</span><span class="p">,</span> <span class="n">data_types</span><span class="p">,</span> <span class="n">ty</span><span class="p">)</span> <span class="o">=</span> <span class="n">dtypes_class</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="go">[&#39;Age&#39;, &#39;RestBP&#39;, &#39;Chol&#39;, &#39;Fbs&#39;, &#39;RestECG&#39;, &#39;MaxHR&#39;, &#39;ExAng&#39;, &#39;Oldpeak&#39;, &#39;Slope&#39;, &#39;Ca&#39;]</span>
+<span class="go">[&#39;ChestPain&#39;, &#39;Thal&#39;, &#39;AHD&#39;]</span>
+<span class="go">[&#39;Sex&#39;]</span>
+<span class="go">      feature   dtypes</span>
+<span class="go">0         Age    int64</span>
+<span class="go">1         Sex     bool</span>
+<span class="go">2   ChestPain   object</span>
+<span class="go">3      RestBP    int64</span>
+<span class="go">4        Chol    int64</span>
+<span class="go">5         Fbs    int64</span>
+<span class="go">6     RestECG    int64</span>
+<span class="go">7       MaxHR    int64</span>
+<span class="go">8       ExAng    int64</span>
+<span class="go">9     Oldpeak  float64</span>
+<span class="go">10      Slope    int64</span>
+<span class="go">11         Ca  float64</span>
+<span class="go">12       Thal   object</span>
+<span class="go">13        AHD   object</span>
+<span class="go">      feature   dtypes     class</span>
+<span class="go">0         Age    int64   numeric</span>
+<span class="go">1         Sex     bool      bool</span>
+<span class="go">2   ChestPain   object  category</span>
+<span class="go">3      RestBP    int64   numeric</span>
+<span class="go">4        Chol    int64   numeric</span>
+<span class="go">5         Fbs    int64   numeric</span>
+<span class="go">6     RestECG    int64   numeric</span>
+<span class="go">7       MaxHR    int64   numeric</span>
+<span class="go">8       ExAng    int64   numeric</span>
+<span class="go">9     Oldpeak  float64   numeric</span>
+<span class="go">10      Slope    int64   numeric</span>
+<span class="go">11         Ca  float64   numeric</span>
+<span class="go">12       Thal   object  category</span>
+<span class="go">13        AHD   object  category</span>
 </pre></div>
 </div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>       .,,.
@@ -201,10 +231,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="reference.html" class="btn btn-neutral float-right" title="6. Main Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="reference.html" class="btn btn-neutral float-right" title="5. Main Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="tests.html" class="btn btn-neutral float-left" title="4. Hypothesis Testing Basics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="basics.html" class="btn btn-neutral float-left" title="3. Python Data Audit Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
