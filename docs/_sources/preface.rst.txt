@@ -17,7 +17,7 @@ About
 About this API
 --------------
 
-This document is the |api| for our Python Data Audit Library [PyAudit]_ API. The PDF version can be downloaded from `HERE <PyAudit.pdf>`_. **You may download and distribute it. Please be aware, however, that the note contains typos as well as inaccurate or incorrect description.** 
+This document is the |api| book for our Python Data Audit Library [PyAudit]_ API. The PDF version can be downloaded from `HERE <PyAudit.pdf>`_. **You may download and distribute it. Please be aware, however, that the note contains typos as well as inaccurate or incorrect description.** 
 
 The |api| assumes that the reader has a preliminary knowledge of ``python`` programing and ``Linux``. And this document is generated automatically by using `sphinx`_.
 
@@ -56,4 +56,4 @@ About the author
 Feedback and suggestions
 ++++++++++++++++++++++++
 Your comments and suggestions are highly appreciated. I am more than happy to receive 
-corrections, suggestions or feedbacks through email (Wenqiang Feng: von198@gmail.com) for improvements. 
+corrections, suggestions or feedbacks through email (Wenqiang Feng: von198@gmail.com and Ming Chen: ming.chen0919@gmail.com) for improvements. 
