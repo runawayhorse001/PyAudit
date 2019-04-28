@@ -225,19 +225,76 @@ python test1.py
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">Results</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="o">-</span><span class="mf">1.27920153</span>  <span class="mf">0.84000173</span>  <span class="mf">1.75114469</span> <span class="o">-</span><span class="mf">0.02731652</span> <span class="o">-</span><span class="mf">0.56417185</span> <span class="o">-</span><span class="mf">0.61239996</span>
- <span class="o">-</span><span class="mf">1.47376967</span>  <span class="mf">1.39551562</span> <span class="o">-</span><span class="mf">0.8559779</span>   <span class="mf">0.60139758</span><span class="p">]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>  feature  missing_rate
+<span class="m">0</span>       A          <span class="m">0</span>.25
+<span class="m">1</span>       B          <span class="m">0</span>.00
+<span class="m">2</span>       C          <span class="m">0</span>.25
+  feature  zero_rate
+<span class="m">0</span>       A   <span class="m">0</span>.333333
+<span class="m">1</span>       B   <span class="m">0</span>.750000
+<span class="m">2</span>       C   <span class="m">0</span>.000000
+  feature  feature_variance
+<span class="m">0</span>       A               <span class="m">1</span>.0
+<span class="m">1</span>       B               <span class="m">0</span>.5
+<span class="m">2</span>       C               <span class="m">1</span>.0
+   Age    Sex     ChestPain  RestBP  Chol  ...  Oldpeak  Slope   Ca        Thal  AHD
+<span class="m">0</span>   <span class="m">63</span>   True       typical     <span class="m">145</span>   <span class="m">233</span>  ...      <span class="m">2</span>.3      <span class="m">3</span>  <span class="m">0</span>.0       fixed   No
+<span class="m">1</span>   <span class="m">67</span>   True  asymptomatic     <span class="m">160</span>   <span class="m">286</span>  ...      <span class="m">1</span>.5      <span class="m">2</span>  <span class="m">3</span>.0      normal  Yes
+<span class="m">2</span>   <span class="m">67</span>   True  asymptomatic     <span class="m">120</span>   <span class="m">229</span>  ...      <span class="m">2</span>.6      <span class="m">2</span>  <span class="m">2</span>.0  reversable  Yes
+<span class="m">3</span>   <span class="m">37</span>   True    nonanginal     <span class="m">130</span>   <span class="m">250</span>  ...      <span class="m">3</span>.5      <span class="m">3</span>  <span class="m">0</span>.0      normal   No
+<span class="m">4</span>   <span class="m">41</span>  False    nontypical     <span class="m">130</span>   <span class="m">204</span>  ...      <span class="m">1</span>.4      <span class="m">1</span>  <span class="m">0</span>.0      normal   No
 
-    <span class="o">--------------------------------------------------------------------------------</span>
-    <span class="c1">#       One Sample t-test</span>
-    <span class="c1"># data:  [&#39;y&#39;]</span>
-    <span class="c1"># t = 3.872983346207417, df = 3, p-value = 0.030466291662170977</span>
-    <span class="c1"># alternative hypothesis: true mean is not equal to 0.0</span>
-    <span class="c1"># 95.0 percent confidence interval:</span>
-    <span class="c1"># 0.4457397432391206, 4.554260256760879</span>
-    <span class="c1"># mean of x</span>
-    <span class="c1">#         2.5</span>
-    <span class="o">--------------------------------------------------------------------------------</span>
+<span class="o">[</span><span class="m">5</span> rows x <span class="m">14</span> columns<span class="o">]</span>
+<span class="o">[</span><span class="s1">&#39;Age&#39;</span>, <span class="s1">&#39;RestBP&#39;</span>, <span class="s1">&#39;Chol&#39;</span>, <span class="s1">&#39;Fbs&#39;</span>, <span class="s1">&#39;RestECG&#39;</span>, <span class="s1">&#39;MaxHR&#39;</span>, <span class="s1">&#39;ExAng&#39;</span>, <span class="s1">&#39;Oldpeak&#39;</span>, <span class="s1">&#39;Slope&#39;</span>, <span class="s1">&#39;Ca&#39;</span><span class="o">]</span>
+<span class="o">[</span><span class="s1">&#39;ChestPain&#39;</span>, <span class="s1">&#39;Thal&#39;</span>, <span class="s1">&#39;AHD&#39;</span><span class="o">]</span>
+<span class="o">[</span><span class="s1">&#39;Sex&#39;</span><span class="o">]</span>
+      feature   dtypes
+<span class="m">0</span>         Age    int64
+<span class="m">1</span>         Sex     bool
+<span class="m">2</span>   ChestPain   object
+<span class="m">3</span>      RestBP    int64
+<span class="m">4</span>        Chol    int64
+<span class="m">5</span>         Fbs    int64
+<span class="m">6</span>     RestECG    int64
+<span class="m">7</span>       MaxHR    int64
+<span class="m">8</span>       ExAng    int64
+<span class="m">9</span>     Oldpeak  float64
+<span class="m">10</span>      Slope    int64
+<span class="m">11</span>         Ca  float64
+<span class="m">12</span>       Thal   object
+<span class="m">13</span>        AHD   object
+      feature   dtypes     class
+<span class="m">0</span>         Age    int64   numeric
+<span class="m">1</span>         Sex     bool      bool
+<span class="m">2</span>   ChestPain   object  category
+<span class="m">3</span>      RestBP    int64   numeric
+<span class="m">4</span>        Chol    int64   numeric
+<span class="m">5</span>         Fbs    int64   numeric
+<span class="m">6</span>     RestECG    int64   numeric
+<span class="m">7</span>       MaxHR    int64   numeric
+<span class="m">8</span>       ExAng    int64   numeric
+<span class="m">9</span>     Oldpeak  float64   numeric
+<span class="m">10</span>      Slope    int64   numeric
+<span class="m">11</span>         Ca  float64   numeric
+<span class="m">12</span>       Thal   object  category
+<span class="m">13</span>        AHD   object  category
+      feature  missing_rate
+<span class="m">0</span>         Age      <span class="m">0</span>.000000
+<span class="m">1</span>         Sex      <span class="m">0</span>.000000
+<span class="m">2</span>   ChestPain      <span class="m">0</span>.000000
+<span class="m">3</span>      RestBP      <span class="m">0</span>.000000
+<span class="m">4</span>        Chol      <span class="m">0</span>.000000
+<span class="m">5</span>         Fbs      <span class="m">0</span>.000000
+<span class="m">6</span>     RestECG      <span class="m">0</span>.000000
+<span class="m">7</span>       MaxHR      <span class="m">0</span>.000000
+<span class="m">8</span>       ExAng      <span class="m">0</span>.000000
+<span class="m">9</span>     Oldpeak      <span class="m">0</span>.000000
+<span class="m">10</span>      Slope      <span class="m">0</span>.000000
+<span class="m">11</span>         Ca      <span class="m">0</span>.013201
+<span class="m">12</span>       Thal      <span class="m">0</span>.006601
+<span class="m">13</span>        AHD      <span class="m">0</span>.000000
+
+Process finished with <span class="nb">exit</span> code <span class="m">0</span>
 </pre></div>
 </div>
 </div>

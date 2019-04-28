@@ -54,21 +54,78 @@ Test
 
 |rst|	
 
-.. code-block:: python
+.. code-block:: bash
 
-	[-1.27920153  0.84000173  1.75114469 -0.02731652 -0.56417185 -0.61239996
-	 -1.47376967  1.39551562 -0.8559779   0.60139758]
+	  feature  missing_rate
+	0       A          0.25
+	1       B          0.00
+	2       C          0.25
+	  feature  zero_rate
+	0       A   0.333333
+	1       B   0.750000
+	2       C   0.000000
+	  feature  feature_variance
+	0       A               1.0
+	1       B               0.5
+	2       C               1.0
+	   Age    Sex     ChestPain  RestBP  Chol  ...  Oldpeak  Slope   Ca        Thal  AHD
+	0   63   True       typical     145   233  ...      2.3      3  0.0       fixed   No
+	1   67   True  asymptomatic     160   286  ...      1.5      2  3.0      normal  Yes
+	2   67   True  asymptomatic     120   229  ...      2.6      2  2.0  reversable  Yes
+	3   37   True    nonanginal     130   250  ...      3.5      3  0.0      normal   No
+	4   41  False    nontypical     130   204  ...      1.4      1  0.0      normal   No
 
-	    --------------------------------------------------------------------------------
-	    #       One Sample t-test
-	    # data:  ['y']
-	    # t = 3.872983346207417, df = 3, p-value = 0.030466291662170977
-	    # alternative hypothesis: true mean is not equal to 0.0
-	    # 95.0 percent confidence interval:
-	    # 0.4457397432391206, 4.554260256760879
-	    # mean of x
-	    #         2.5
-	    --------------------------------------------------------------------------------
+	[5 rows x 14 columns]
+	['Age', 'RestBP', 'Chol', 'Fbs', 'RestECG', 'MaxHR', 'ExAng', 'Oldpeak', 'Slope', 'Ca']
+	['ChestPain', 'Thal', 'AHD']
+	['Sex']
+	      feature   dtypes
+	0         Age    int64
+	1         Sex     bool
+	2   ChestPain   object
+	3      RestBP    int64
+	4        Chol    int64
+	5         Fbs    int64
+	6     RestECG    int64
+	7       MaxHR    int64
+	8       ExAng    int64
+	9     Oldpeak  float64
+	10      Slope    int64
+	11         Ca  float64
+	12       Thal   object
+	13        AHD   object
+	      feature   dtypes     class
+	0         Age    int64   numeric
+	1         Sex     bool      bool
+	2   ChestPain   object  category
+	3      RestBP    int64   numeric
+	4        Chol    int64   numeric
+	5         Fbs    int64   numeric
+	6     RestECG    int64   numeric
+	7       MaxHR    int64   numeric
+	8       ExAng    int64   numeric
+	9     Oldpeak  float64   numeric
+	10      Slope    int64   numeric
+	11         Ca  float64   numeric
+	12       Thal   object  category
+	13        AHD   object  category
+	      feature  missing_rate
+	0         Age      0.000000
+	1         Sex      0.000000
+	2   ChestPain      0.000000
+	3      RestBP      0.000000
+	4        Chol      0.000000
+	5         Fbs      0.000000
+	6     RestECG      0.000000
+	7       MaxHR      0.000000
+	8       ExAng      0.000000
+	9     Oldpeak      0.000000
+	10      Slope      0.000000
+	11         Ca      0.013201
+	12       Thal      0.006601
+	13        AHD      0.000000
+
+	Process finished with exit code 0
 
 .. _Sphinx: http://www.sphinx-doc.org/en/master/
 .. _reStructuredText: https://en.wikipedia.org/wiki/ReStructuredText
