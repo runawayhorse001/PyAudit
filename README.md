@@ -2,6 +2,10 @@
 
 ![PyAudit](doc/images/logo.png)
 
+<p align="center">
+  <img width="600" height="200" src="doc/images/logo.png">
+</p>
+
 This is our Python Data Audit library repositories.
 The ``API`` can be found at: https://runawayhorse001.github.io/PyAudit. 
 If you want to colne and install it, you can use 
