@@ -1,4 +1,4 @@
-from PyAudit.basics	import missing_rate, zero_rate
+from PyAudit.basics	import missing_rate, zero_rate, dtypes_class
 
 import pandas as pd
 
@@ -12,16 +12,15 @@ print(missing_rate(df))
 print(zero_rate(df))
 
 
-
 # read df
-df = pd.read_csv('Heart.csv')
+df = pd.read_csv('Heart.csv', dtype={'Sex': bool})
 print(df.head(5))
+(num_fields, cat_fields, bool_fields, data_types) = dtypes_class(df)
 
-print(missing_rate(df))
-print(zero_rate(df))
-
-df_num = df[['Age', 'Ca']]
-
-
-
+print(num_fields)
+print(cat_fields)
+print(bool_fields)
+print(data_types)
+#print(missing_rate(df))
+#print(zero_rate(df))
 

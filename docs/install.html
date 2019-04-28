@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="_static/fix_rtd.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="3. Basics Python Audit Functions" href="basics.html" />
+    <link rel="next" title="3. Python Data Audit Functions" href="basics.html" />
     <link rel="prev" title="1. Preface" href="preface.html" /> 
 </head>
 
@@ -96,7 +96,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#test">2.4. Test</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="basics.html">3. Basics Python Audit Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">3. Python Data Audit Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tests.html">4. Hypothesis Testing Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demo.html">5. Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html">6. Main Reference</a></li>
@@ -195,7 +195,7 @@ python test1.py
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">test1.py</span></code></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PyAudit.basics</span>	<span class="kn">import</span> <span class="n">missing_rate</span><span class="p">,</span> <span class="n">zero_rate</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PyAudit.basics</span>	<span class="kn">import</span> <span class="n">missing_rate</span><span class="p">,</span> <span class="n">zero_rate</span><span class="p">,</span> <span class="n">dtypes_class</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 
@@ -209,18 +209,17 @@ python test1.py
 <span class="k">print</span><span class="p">(</span><span class="n">zero_rate</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
 
 
-
 <span class="c1"># read df</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Heart.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Heart.csv&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Sex&#39;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">})</span>
 <span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="p">(</span><span class="n">num_fields</span><span class="p">,</span> <span class="n">cat_fields</span><span class="p">,</span> <span class="n">bool_fields</span><span class="p">,</span> <span class="n">data_types</span><span class="p">)</span> <span class="o">=</span> <span class="n">dtypes_class</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">missing_rate</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">zero_rate</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
-
-<span class="n">df_num</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Ca&#39;</span><span class="p">]]</span>
-
-
-
+<span class="k">print</span><span class="p">(</span><span class="n">num_fields</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">cat_fields</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">bool_fields</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data_types</span><span class="p">)</span>
+<span class="c1">#print(missing_rate(df))</span>
+<span class="c1">#print(zero_rate(df))</span>
 
 </pre></div>
 </div>
@@ -251,7 +250,7 @@ python test1.py
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="basics.html" class="btn btn-neutral float-right" title="3. Basics Python Audit Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="basics.html" class="btn btn-neutral float-right" title="3. Python Data Audit Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="preface.html" class="btn btn-neutral float-left" title="1. Preface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3. Basics Python Audit Functions &mdash; Python Data Audit Library API 1.00 documentation</title>
+  <title>3. Python Data Audit Functions &mdash; Python Data Audit Library API 1.00 documentation</title>
   
 
   
@@ -90,9 +90,10 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="preface.html">1. Preface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">2. How to Install</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Basics Python Audit Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-PyAudit.basics">3.1. <code class="docutils literal notranslate"><span class="pre">missing_rate</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-PyAudit.basics">3.2. <code class="docutils literal notranslate"><span class="pre">zero_rate</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Python Data Audit Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-PyAudit.basics">3.1. <code class="docutils literal notranslate"><span class="pre">dtypes_class</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-PyAudit.basics">3.2. <code class="docutils literal notranslate"><span class="pre">missing_rate</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-PyAudit.basics">3.3. <code class="docutils literal notranslate"><span class="pre">zero_rate</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tests.html">4. Hypothesis Testing Basics</a></li>
@@ -143,7 +144,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>3. Basics Python Audit Functions</li>
+      <li>3. Python Data Audit Functions</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -164,13 +165,36 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="basics-python-audit-functions">
-<span id="basics"></span><h1>3. Basics Python Audit Functions<a class="headerlink" href="#basics-python-audit-functions" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="python-data-audit-functions">
+<span id="basics"></span><h1>3. Python Data Audit Functions<a class="headerlink" href="#python-data-audit-functions" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-PyAudit.basics">
-<span id="missing-rate"></span><h2>3.2. <code class="docutils literal notranslate"><span class="pre">missing_rate</span></code><a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h2>
+<span id="dtypes-class"></span><h2>3.3. <code class="docutils literal notranslate"><span class="pre">dtypes_class</span></code><a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="PyAudit.basics.dtypes_class">
+<code class="descclassname">PyAudit.basics.</code><code class="descname">dtypes_class</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L6-L38"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.dtypes_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>numerical, categorical and bool name list in the DataFrame</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>df_in</strong> – input pandas DataFrame</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">numerical, categorical and bool name list</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">Wenqiang Feng and Ming Chen</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Email:</th><td class="field-body"><a class="reference external" href="mailto:von198&#37;&#52;&#48;gmail&#46;com">von198<span>&#64;</span>gmail<span>&#46;</span>com</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-PyAudit.basics">
+<span id="missing-rate"></span><h2>3.3. <code class="docutils literal notranslate"><span class="pre">missing_rate</span></code><a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="PyAudit.basics.missing_rate">
-<code class="descclassname">PyAudit.basics.</code><code class="descname">missing_rate</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L6-L22"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.missing_rate" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">PyAudit.basics.</code><code class="descname">missing_rate</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L40-L56"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.missing_rate" title="Permalink to this definition">¶</a></dt>
 <dd><p>calculate missing rate for each feature in the DataFrame</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -190,10 +214,10 @@
 
 </div>
 <div class="section" id="module-PyAudit.basics">
-<span id="zero-rate"></span><h2>3.2. <code class="docutils literal notranslate"><span class="pre">zero_rate</span></code><a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h2>
+<span id="zero-rate"></span><h2>3.3. <code class="docutils literal notranslate"><span class="pre">zero_rate</span></code><a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="PyAudit.basics.zero_rate">
-<code class="descclassname">PyAudit.basics.</code><code class="descname">zero_rate</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L25-L41"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.zero_rate" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">PyAudit.basics.</code><code class="descname">zero_rate</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L59-L75"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.zero_rate" title="Permalink to this definition">¶</a></dt>
 <dd><p>calculate the percentage of 0 value for each feature in the DataFrame</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />

@@ -1,8 +1,15 @@
 .. _basics:
 
-=============================
-Basics Python Audit Functions 
-=============================
+===========================
+Python Data Audit Functions 
+===========================
+
+``dtypes_class``
+++++++++++++++++
+
+.. automodule:: PyAudit.basics	
+   :members: dtypes_class
+
 
 ``missing_rate``
 ++++++++++++++++
