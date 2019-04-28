@@ -1,4 +1,4 @@
-from PyAudit.basics	import missing_rate, zero_rate, dtypes_class
+from PyAudit.basics import missing_rate, zero_rate, dtypes_class
 
 import pandas as pd
 
