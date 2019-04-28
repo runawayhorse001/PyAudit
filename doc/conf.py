@@ -82,7 +82,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General substitutions.
-project = 'Python Data Audit Library API'
+project = 'PyAudit: Python Data Audit Library API'
 copyright = '2019, Wenqiang Feng and Ming Chen'
 
 # The default replacements for |version| and |release|, also used in various
@@ -283,7 +283,7 @@ latex_elements = {
 # (source start file, target name, title, author, document class
 # [howto/manual]).
 latex_documents = [
-  ('index', 'PyAudit.tex', 'Python Data Audit  Library API',
+  ('index', 'PyAudit.tex', 'PyAudit: Python Data Audit Library API',
    'Wenqiang Feng and Ming Chen', 'manual'),
 ]
 # The name of an image file (relative to this directory) to place at the top of
