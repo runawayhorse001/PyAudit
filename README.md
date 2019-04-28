@@ -1,7 +1,5 @@
 # PyAudit: Python Data Audit 
 
-![PyAudit](doc/images/logo.png)
-
 <p align="center">
   <img width="1200" height="300" src="doc/images/logo.png">
 </p>
