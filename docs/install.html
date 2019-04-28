@@ -195,7 +195,7 @@ python test1.py
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">test1.py</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PyAudit.basics</span> <span class="kn">import</span> <span class="n">missing_rate</span><span class="p">,</span> <span class="n">zero_rate</span><span class="p">,</span> <span class="n">dtypes_class</span>
-
+<span class="kn">from</span> <span class="nn">PyAudit.basics</span> <span class="kn">import</span> <span class="n">feature_variance</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 
 <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
@@ -206,6 +206,7 @@ python test1.py
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">missing_rate</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="n">zero_rate</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">feature_variance</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
 
 
 <span class="c1"># read df</span>
@@ -218,7 +219,7 @@ python test1.py
 <span class="k">print</span><span class="p">(</span><span class="n">bool_fields</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">data_types</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">type_class</span><span class="p">)</span>
-<span class="c1">#print(missing_rate(df))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">missing_rate</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
 <span class="c1">#print(zero_rate(df))</span>
 
 </pre></div>

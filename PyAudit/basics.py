@@ -12,6 +12,12 @@ def dtypes_class(df_in):
 
     :author: Wenqiang Feng and Ming Chen
     :email:  von198@gmail.com
+
+    >>> from PyAudit.basics import dtypes_class
+    >>> df = pd.read_csv('Heart.csv', dtype={'Sex': bool})
+    >>> (num_fields, cat_fields, bool_fields, data_types, type_class) = dtypes_class(df)
+    >>> num_fields
+    ['Age', 'RestBP', 'Chol', 'Fbs', 'RestECG', 'MaxHR', 'ExAng', 'Oldpeak', 'Slope', 'Ca']
     """
 
     # quantitative data types in pandas dtypes
@@ -45,6 +51,19 @@ def missing_rate(df_in):
 
     :author: Wenqiang Feng and Ming Chen
     :email:  von198@gmail.com
+
+    >>> import pandas as pd
+    >>> d = {'A': [1, 0, None, 3],
+             'B': [1, 0, 0, 0],
+             'C': ['a', None, 'c', 'd']}
+    >>> # create DataFrame
+    >>> df = pd.DataFrame(d)
+    >>> from PyAudit.basics import missing_rate
+    >>> missing_rate(df)
+             feature  missing_rate
+           0       A          0.25
+           1       B          0.00
+           2       C          0.25
     """
 
     rate = df_in.isnull().sum() / df_in.shape[0]
@@ -63,6 +82,19 @@ def zero_rate(df_in):
 
     :author: Wenqiang Feng and Ming Chen
     :email:  von198@gmail.com
+
+    >>> import pandas as pd
+    >>> d = {'A': [1, 0, None, 3],
+             'B': [1, 0, 0, 0],
+             'C': ['a', None, 'c', 'd']}
+    >>> # create DataFrame
+    >>> df = pd.DataFrame(d)
+    >>> from PyAudit.basics import zero_rate
+    >>> zero_rate(df)
+             feature  zero_rate
+           0       A   0.333333
+           1       B   0.750000
+           2       C   0.000000
     """
 
     rate = ((df_in == 0).sum(axis=0)) / df_in.notnull().sum()
@@ -81,6 +113,19 @@ def feature_variance(df_in):
 
     :author: Wenqiang Feng and Ming Chen
     :email:  von198@gmail.com
+
+    >>> import pandas as pd
+    >>> d = {'A': [1, 0, None, 3],
+             'B': [1, 0, 0, 0],
+             'C': ['a', None, 'c', 'd']}
+    >>> # create DataFrame
+    >>> df = pd.DataFrame(d)
+    >>> from PyAudit.basics import zero_rate
+    >>> zero_rate(df)
+             feature  feature_variance
+           0       A               1.0
+           1       B               0.5
+           2       C               1.0
     """
 
     rate = df_in.nunique() / df_in.notnull().sum()

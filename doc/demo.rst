@@ -13,7 +13,7 @@ This is a usage of :func:`PyAudit.basics.dtypes_class`:
 
 >>> from PyAudit.basics import missing_rate, zero_rate, dtypes_class
 >>> df = pd.read_csv('Heart.csv', dtype={'Sex': bool})
->>> (num_fields, cat_fields, bool_fields, data_types, ty) = dtypes_class(df)
+>>> (num_fields, cat_fields, bool_fields, data_types, type_class) = dtypes_class(df)
 ['Age', 'RestBP', 'Chol', 'Fbs', 'RestECG', 'MaxHR', 'ExAng', 'Oldpeak', 'Slope', 'Ca']
 ['ChestPain', 'Thal', 'AHD']
 ['Sex']
@@ -47,6 +47,11 @@ This is a usage of :func:`PyAudit.basics.dtypes_class`:
 11         Ca  float64   numeric
 12       Thal   object  category
 13        AHD   object  category
+
+This is a usage of :func:`PyAudit.basics.feature_variance`:
+
+
+|eg|
 
 
 

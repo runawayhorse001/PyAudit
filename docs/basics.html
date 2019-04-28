@@ -171,7 +171,7 @@
 <span id="dtypes-class"></span><h2>3.4. <code class="docutils literal notranslate"><span class="pre">dtypes_class</span></code><a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="PyAudit.basics.dtypes_class">
-<code class="descclassname">PyAudit.basics.</code><code class="descname">dtypes_class</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L6-L36"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.dtypes_class" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">PyAudit.basics.</code><code class="descname">dtypes_class</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L6-L42"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.dtypes_class" title="Permalink to this definition">¶</a></dt>
 <dd><p>numerical, categorical and bool name list in the DataFrame</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -187,6 +187,13 @@
 </tr>
 </tbody>
 </table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">PyAudit.basics</span> <span class="k">import</span> <span class="n">dtypes_class</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Heart.csv&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Sex&#39;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">num_fields</span><span class="p">,</span> <span class="n">cat_fields</span><span class="p">,</span> <span class="n">bool_fields</span><span class="p">,</span> <span class="n">data_types</span><span class="p">,</span> <span class="n">type_class</span><span class="p">)</span> <span class="o">=</span> <span class="n">dtypes_class</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">num_fields</span>
+<span class="go">[&#39;Age&#39;, &#39;RestBP&#39;, &#39;Chol&#39;, &#39;Fbs&#39;, &#39;RestECG&#39;, &#39;MaxHR&#39;, &#39;ExAng&#39;, &#39;Oldpeak&#39;, &#39;Slope&#39;, &#39;Ca&#39;]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
@@ -194,7 +201,7 @@
 <span id="missing-rate"></span><h2>3.4. <code class="docutils literal notranslate"><span class="pre">missing_rate</span></code><a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="PyAudit.basics.missing_rate">
-<code class="descclassname">PyAudit.basics.</code><code class="descname">missing_rate</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L39-L54"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.missing_rate" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">PyAudit.basics.</code><code class="descname">missing_rate</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L45-L73"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.missing_rate" title="Permalink to this definition">¶</a></dt>
 <dd><p>calculate missing rate for each feature in the DataFrame</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -210,6 +217,20 @@
 </tr>
 </tbody>
 </table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="go">         &#39;B&#39;: [1, 0, 0, 0],</span>
+<span class="go">         &#39;C&#39;: [&#39;a&#39;, None, &#39;c&#39;, &#39;d&#39;]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># create DataFrame</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">PyAudit.basics</span> <span class="k">import</span> <span class="n">missing_rate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">missing_rate</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="go">         feature  missing_rate</span>
+<span class="go">       0       A          0.25</span>
+<span class="go">       1       B          0.00</span>
+<span class="go">       2       C          0.25</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
@@ -217,7 +238,7 @@
 <span id="zero-rate"></span><h2>3.4. <code class="docutils literal notranslate"><span class="pre">zero_rate</span></code><a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="PyAudit.basics.zero_rate">
-<code class="descclassname">PyAudit.basics.</code><code class="descname">zero_rate</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L57-L72"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.zero_rate" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">PyAudit.basics.</code><code class="descname">zero_rate</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L76-L104"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.zero_rate" title="Permalink to this definition">¶</a></dt>
 <dd><p>calculate the percentage of 0 value for each feature in the DataFrame</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -233,6 +254,20 @@
 </tr>
 </tbody>
 </table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="go">         &#39;B&#39;: [1, 0, 0, 0],</span>
+<span class="go">         &#39;C&#39;: [&#39;a&#39;, None, &#39;c&#39;, &#39;d&#39;]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># create DataFrame</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">PyAudit.basics</span> <span class="k">import</span> <span class="n">zero_rate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zero_rate</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="go">         feature  zero_rate</span>
+<span class="go">       0       A   0.333333</span>
+<span class="go">       1       B   0.750000</span>
+<span class="go">       2       C   0.000000</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
@@ -240,7 +275,7 @@
 <span id="feature-variance"></span><h2>3.4. <code class="docutils literal notranslate"><span class="pre">feature_variance</span></code><a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="PyAudit.basics.feature_variance">
-<code class="descclassname">PyAudit.basics.</code><code class="descname">feature_variance</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L75-L90"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.feature_variance" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">PyAudit.basics.</code><code class="descname">feature_variance</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L107-L135"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.feature_variance" title="Permalink to this definition">¶</a></dt>
 <dd><p>calculate the variance for each feature</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -256,6 +291,20 @@
 </tr>
 </tbody>
 </table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="go">         &#39;B&#39;: [1, 0, 0, 0],</span>
+<span class="go">         &#39;C&#39;: [&#39;a&#39;, None, &#39;c&#39;, &#39;d&#39;]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># create DataFrame</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">PyAudit.basics</span> <span class="k">import</span> <span class="n">zero_rate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zero_rate</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="go">         feature  feature_variance</span>
+<span class="go">       0       A               1.0</span>
+<span class="go">       1       B               0.5</span>
+<span class="go">       2       C               1.0</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>

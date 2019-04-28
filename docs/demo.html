@@ -165,7 +165,7 @@
 <p>For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">PyAudit.basics</span> <span class="k">import</span> <span class="n">missing_rate</span><span class="p">,</span> <span class="n">zero_rate</span><span class="p">,</span> <span class="n">dtypes_class</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Heart.csv&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Sex&#39;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">})</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">num_fields</span><span class="p">,</span> <span class="n">cat_fields</span><span class="p">,</span> <span class="n">bool_fields</span><span class="p">,</span> <span class="n">data_types</span><span class="p">,</span> <span class="n">ty</span><span class="p">)</span> <span class="o">=</span> <span class="n">dtypes_class</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">num_fields</span><span class="p">,</span> <span class="n">cat_fields</span><span class="p">,</span> <span class="n">bool_fields</span><span class="p">,</span> <span class="n">data_types</span><span class="p">,</span> <span class="n">type_class</span><span class="p">)</span> <span class="o">=</span> <span class="n">dtypes_class</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="go">[&#39;Age&#39;, &#39;RestBP&#39;, &#39;Chol&#39;, &#39;Fbs&#39;, &#39;RestECG&#39;, &#39;MaxHR&#39;, &#39;ExAng&#39;, &#39;Oldpeak&#39;, &#39;Slope&#39;, &#39;Ca&#39;]</span>
 <span class="go">[&#39;ChestPain&#39;, &#39;Thal&#39;, &#39;AHD&#39;]</span>
 <span class="go">[&#39;Sex&#39;]</span>
@@ -201,6 +201,8 @@
 <span class="go">13        AHD   object  category</span>
 </pre></div>
 </div>
+<p>This is a usage of <a class="reference internal" href="basics.html#PyAudit.basics.feature_variance" title="PyAudit.basics.feature_variance"><code class="xref py py-func docutils literal notranslate"><span class="pre">PyAudit.basics.feature_variance()</span></code></a>:</p>
+<p>For example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>       .,,.
      ,<span class="p">;;</span>*<span class="p">;;;;</span>,
     .-<span class="s1">&#39;``;-&#39;</span><span class="o">)</span><span class="p">;;</span>.

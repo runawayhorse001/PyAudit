@@ -1,5 +1,5 @@
 from PyAudit.basics import missing_rate, zero_rate, dtypes_class
-
+from PyAudit.basics import feature_variance
 import pandas as pd
 
 d = {'A': [1, 0, None, 3],
@@ -10,6 +10,7 @@ d = {'A': [1, 0, None, 3],
 df = pd.DataFrame(d)
 print(missing_rate(df))
 print(zero_rate(df))
+print(feature_variance(df))
 
 
 # read df
@@ -22,6 +23,6 @@ print(cat_fields)
 print(bool_fields)
 print(data_types)
 print(type_class)
-#print(missing_rate(df))
+print(missing_rate(df))
 #print(zero_rate(df))
 
