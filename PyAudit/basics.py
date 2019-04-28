@@ -38,6 +38,7 @@ def dtypes_class(df_in):
 
     return quant_fields, quanl_fields, bool_fields, data_types
 
+
 def missing_rate(df_in):
     """
     calculate missing rate for each feature in the DataFrame
