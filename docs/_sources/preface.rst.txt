@@ -19,15 +19,7 @@ About this API
 
 This document is the |api| for Our Python Data Audit Library [PyAudit]_ API. The PDF version can be downloaded from `HERE <PyAudit.pdf>`_. **You may download and distribute it. Please be aware, however, that the note contains typos as well as inaccurate or incorrect description.** 
 
-In this repository, I try to use the detailed demo code and 
-examples to show how to use ``Sphinx`` to generate the ``.html`` and ``.pdf`` documents and how to hookup them automatically on ``Github``. If you find your work wasn’t cited in this note, please feel free to let me know.
-
-Although I am by no means a python programming and Sphinx expert, 
-I decided that it would be useful for me to share what I learned 
-about Sphinx in the form of easy tutorials with detailed example. 
-I hope those tutorials will be a valuable tool for your studies.
-
-The tutorials assume that the reader has a preliminary knowledge of ``python`` programing, ``LaTex`` and ``Linux``. And this document is generated automatically by using `sphinx`_.
+The |api| assumes that the reader has a preliminary knowledge of ``python`` programing and ``Linux``. And this document is generated automatically by using `sphinx`_.
 
 .. _sphinx: http://sphinx.pocoo.org
 
