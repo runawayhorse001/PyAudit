@@ -19,7 +19,13 @@ Python Data Audit Functions
 
 
 ``zero_rate``
-++++++++++++++++
++++++++++++++
 
 .. automodule:: PyAudit.basics	
    :members: zero_rate
+
+``feature_variance``
+++++++++++++++++++++
+
+.. automodule:: PyAudit.basics	
+   :members: feature_variance  

@@ -25,17 +25,15 @@ def dtypes_class(df_in):
                   .rename(columns={'index': 'feature', 0: 'dtypes'})
 
     data_types = all_types.copy()
-    type_indx = ['num' if x in num_types else
-                 'bool' if x in bool_types else
-                 'cat' if x in cat_types else
-                 'unknown' for x in all_types['dtypes'].tolist()]
+    all_types['class'] = ['numeric' if x in num_types else
+                          'bool' if x in bool_types else
+                          'category' if x in cat_types else
+                          'unknown' for x in all_types['dtypes'].tolist()]
 
-    all_types['class'] = type_indx
-
-    quant_fields = all_types[all_types['class'] == 'num']['feature'].tolist()
-    quanl_fields = all_types[all_types['class'] == 'cat']['feature'].tolist()
+    quant_fields = all_types[all_types['class'] == 'numeric']['feature'].tolist()
+    quanl_fields = all_types[all_types['class'] == 'category']['feature'].tolist()
     bool_fields = all_types[all_types['class'] == 'bool']['feature'].tolist()
-    return quant_fields, quanl_fields, bool_fields, data_types
+    return quant_fields, quanl_fields, bool_fields, data_types, all_types
 
 
 def missing_rate(df_in):
@@ -67,12 +65,29 @@ def zero_rate(df_in):
     :email:  von198@gmail.com
     """
 
-    rate = ((df_in == 0).sum(axis=0)) / df_in.shape[0]
+    rate = ((df_in == 0).sum(axis=0)) / df_in.notnull().sum()
     # rename the column
     percentage_zero = pd.DataFrame(rate).reset_index()\
                         .rename(columns={'index': 'feature', 0: 'zero_rate'})
     return percentage_zero
 
+
+def feature_variance(df_in):
+    """
+    calculate the variance for each feature
+
+    :param df_in: input pandas DataFrame
+    :return: feature variance
+
+    :author: Wenqiang Feng and Ming Chen
+    :email:  von198@gmail.com
+    """
+
+    rate = df_in.nunique() / df_in.notnull().sum()
+    rate = pd.DataFrame(rate)\
+             .reset_index()\
+             .rename(columns={'index': 'feature', 0: 'feature_variance'})
+    return rate
 
 
 
