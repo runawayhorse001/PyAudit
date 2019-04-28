@@ -1,6 +1,6 @@
 # PyAudit: Python Data Audit 
 
-![PyAudit](PyAudit/doc/images/logo.png)
+![PyAudit](doc/images/logo.png)
 
 This is our Python Data Audit library repositories.
 The ``API`` can be found at: https://runawayhorse001.github.io/PyAudit. 
