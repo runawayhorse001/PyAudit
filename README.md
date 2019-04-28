@@ -1,6 +1,6 @@
 # PyAudit: Python Data Audit 
 
-This is my statistics python data audit repositories.
+This is our Python Data Audit library repositories.
 The ``API`` can be found at: https://runawayhorse001.github.io/PyAudit. 
 If you want to colne and install it, you can use 
 
