@@ -17,7 +17,7 @@ def dtypes_class(df_in):
     # quantitative data types in pandas dtypes
     num_types = ['int64', 'float64']
     # qualitative data types in pandas dtypes
-    cat_types = ['object', 'datetime64']
+    cat_types = ['object', 'datetime64', 'category']
     # bool data types in pandas dtypes
     bool_types = ['bool']
 
@@ -27,7 +27,8 @@ def dtypes_class(df_in):
     data_types = all_types.copy()
     type_indx = ['num' if x in num_types else
                  'bool' if x in bool_types else
-                 'cat' for x in all_types['dtypes'].tolist()]
+                 'cat' if x in cat_types else
+                 'unknown' for x in all_types['dtypes'].tolist()]
 
     all_types['class'] = type_indx
 
