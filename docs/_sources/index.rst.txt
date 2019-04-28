@@ -5,7 +5,7 @@
   .. figure:: images/logo.png
     :align: center
 
-Welcome to our **Python Data Audit Library API**! The PDF version can be downloaded from `HERE <PyAudit.pdf>`_.
+Welcome to our **PyAudit: Python Data Audit Library API**! The PDF version can be downloaded from `HERE <PyAudit.pdf>`_.
 
 ========
 Contents
