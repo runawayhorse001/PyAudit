@@ -1,5 +1,4 @@
 pandas
 numpy
-scipy
-patsy
 matplotlib
+seaborn
