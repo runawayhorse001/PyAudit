@@ -42,4 +42,11 @@ Python Data Audit Functions
 +++++++++++++++++
 
 .. automodule:: PyAudit.basics	
-   :members: feature_len      
+   :members: feature_len   
+
+
+``numeric_summary``
++++++++++++++++++++
+
+.. automodule:: PyAudit.basics	
+   :members: numeric_summary      

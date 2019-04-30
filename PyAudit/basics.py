@@ -179,7 +179,6 @@ def feature_len(df_in):
     >>> d = {'A': [1, 0, None, 3],
     >>>      'B': [1, 0, 0, 0],
     >>>      'C': ['a', None, 'c', 'd']}
-
     >>> # create DataFrame
     >>> df = pd.DataFrame(d)
     >>> print(df)
@@ -206,6 +205,25 @@ def feature_len(df_in):
 
 
 def numeric_summary(df_in, deciles=False):
+    """
+    generate statistical summary for numerical DateFrame
+
+    :param df_in:
+    :param deciles: flag for percentiles style
+    :return: statistical summary for numerical data
+
+    >>> d = {'A': [1, 0, None, 3],
+    >>>      'B': [1, 0, 0, 0],
+    >>>      'C': ['a', None, 'c', 'd']}
+    >>> # create DataFrame
+    >>> df = pd.DataFrame(d)
+    >>> (num_fields, cat_fields, bool_fields, data_types, type_class) = dtypes_class(df)
+    >>> print(numeric_summary(df[num_fields]))
+      feature  min       percentiles  max  ...       std  lower_95_ci  upper_95_ci  sum
+    0       A  0.0   [0.5, 1.0, 2.0]  3.0  ...  1.527525    -0.395224     3.061891  4.0
+    1       B  0.0  [0.0, 0.0, 0.25]  1.0  ...  0.500000    -0.240000     0.740000  1.0
+    """
+
     if deciles:
         var_name = 'deciles'
         percentiles = np.array(range(0, 110, 10))
