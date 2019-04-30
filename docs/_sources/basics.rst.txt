@@ -29,3 +29,17 @@ Python Data Audit Functions
 
 .. automodule:: PyAudit.basics	
    :members: feature_variance  
+
+
+``freq_items_df``
++++++++++++++++++
+
+.. automodule:: PyAudit.basics	
+   :members: freq_items_df     
+
+
+``feature_len``
++++++++++++++++++
+
+.. automodule:: PyAudit.basics	
+   :members: feature_len      

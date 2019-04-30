@@ -135,7 +135,104 @@ def feature_variance(df_in):
     return rate
 
 
+def freq_items_df(df_in, top_n=3):
+    """
+    find out the top n values and the corresponding frequency for each feature
+
+    :param df_in: input pandas DataFrame
+    :param top_n: the number of the top values
+
+    :return: top n values and the corresponding frequency for each feature
+
+    >>> d ={
+    >>>    'num': list('1223334444'),
+    >>>    'cat': list('wxxyyyzzzz')
+    >>>    }
+    >>> df = pd.DataFrame(d)
+    >>> df = df.astype({"num": int, "cat": object})
+    >>> print(freq_items_df(df, top_n=4))
+          feature     top_items     top_freqs
+        0     num  [4, 3, 2, 1]  [4, 3, 2, 1]
+        1     cat  [z, y, x, w]  [4, 3, 2, 1]
+    """
+    def freq_items(x):
+        temp = pd.value_counts(x)
+        top_items = temp.index[:top_n].values
+        top_freqs = temp.values[:top_n]
+        return top_items, top_freqs
+
+    temp = df_in.apply(freq_items)
+
+    d = {'feature':  df_in.columns,
+         'top_items': [i[0] for i in temp],
+         'top_freqs': [i[1] for i in temp]}
+    return pd.DataFrame(d)
 
 
+def feature_len(df_in):
+    """
+    find out the min and max length of values for each feature
 
+    :param df_in: input pandas DataFrame
+    :return: min and max length DataFrame
+
+    >>> d = {'A': [1, 0, None, 3],
+    >>>      'B': [1, 0, 0, 0],
+    >>>      'C': ['a', None, 'c', 'd']}
+
+    >>> # create DataFrame
+    >>> df = pd.DataFrame(d)
+    >>> print(df)
+             A  B     C
+        0  1.0  1     a
+        1  0.0  0  None
+        2  NaN  0     c
+        3  3.0  0     d
+    >>> print(feature_len(df))
+        feature  min_length  max_length
+      0       A           3           3
+      1       B           1           1
+      2       C           1           4
+    """
+    def fea_len(f):
+        temp = f.map(lambda x: len(str(x)))
+        return temp.min(), temp.max()
+
+    temp = df_in.apply(fea_len)
+    d = {'feature': df_in.columns,
+         'min_length': [i[0] for i in temp],
+         'max_length': [i[1] for i in temp]}
+    return pd.DataFrame(d)
+
+
+def numeric_summary(df_in, deciles=False):
+    if deciles:
+        var_name = 'deciles'
+        percentiles = np.array(range(0, 110, 10))
+    else:
+        var_name = 'percentiles'
+        percentiles = [25, 50, 75]
+
+    def deciles(f):
+        return f.min(), \
+               np.percentile(f[f.notnull()], percentiles), \
+               f.max(), \
+               f.mean(), \
+               f.std(), \
+               f.mean() - 1.96 * f.std() / np.sqrt(f.count()), \
+               f.mean() + 1.96 * f.std() / np.sqrt(f.count()), \
+               f.sum()
+
+    temp = np.transpose(df_in.apply(deciles))
+
+    d = {'feature': df_in.columns,
+         'min': [i[0] for i in temp],
+         var_name: [i[1] for i in temp],
+         'max': [i[2] for i in temp],
+         'mean': [i[3] for i in temp],
+         'std': [i[4] for i in temp],
+         'lower_95_ci': [i[5] for i in temp],
+         'upper_95_ci': [i[6] for i in temp],
+         'sum': [i[7] for i in temp]}
+    return pd.DataFrame(d)
 
