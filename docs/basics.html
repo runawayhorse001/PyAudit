@@ -89,16 +89,17 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">3. Python Data Audit Functions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#basic-functions">3.1. Basic Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#module-PyAudit.basics">3.1.1. dtypes_class</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-PyAudit.basics">3.1.2. missing_rate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-PyAudit.basics">3.1.3. zero_rate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-PyAudit.basics">3.1.4. feature_variance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-PyAudit.basics">3.1.5. freq_items_df</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-PyAudit.basics">3.1.6. feature_len</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#missing-rate">3.1.2. missing_rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zero-rate">3.1.3. zero_rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#feature-variance">3.1.4. feature_variance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#freq-items-df">3.1.5. freq_items_df</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#feature-len">3.1.6. feature_len</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#correlation-matrix">3.1.7. correlation matrix</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#summary-functions">3.2. Summary Functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#module-PyAudit.basics">3.2.1. numeric_summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-PyAudit.basics">3.2.2. category_summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#numeric-summary">3.2.1. numeric_summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#category-summary">3.2.2. category_summary</a></li>
 </ul>
 </li>
 </ul>
@@ -176,7 +177,7 @@
 <div class="section" id="basic-functions">
 <h2>3.1. Basic Functions<a class="headerlink" href="#basic-functions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="module-PyAudit.basics">
-<span id="dtypes-class"></span><h3>3.2.2. dtypes_class<a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h3>
+<span id="dtypes-class"></span><h3>3.1.1. dtypes_class<a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="PyAudit.basics.dtypes_class">
 <code class="descclassname">PyAudit.basics.</code><code class="descname">dtypes_class</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L9-L44"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.dtypes_class" title="Permalink to this definition">¶</a></dt>
@@ -205,11 +206,11 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-PyAudit.basics">
-<span id="missing-rate"></span><h3>3.2.2. missing_rate<a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="missing-rate">
+<h3>3.1.2. missing_rate<a class="headerlink" href="#missing-rate" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
-<dt id="PyAudit.basics.missing_rate">
-<code class="descclassname">PyAudit.basics.</code><code class="descname">missing_rate</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L47-L75"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.missing_rate" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="descclassname">PyAudit.basics.</code><code class="descname">missing_rate</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L47-L75"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>calculate missing rate for each feature in the DataFrame</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -242,11 +243,11 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-PyAudit.basics">
-<span id="zero-rate"></span><h3>3.2.2. zero_rate<a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="zero-rate">
+<h3>3.1.3. zero_rate<a class="headerlink" href="#zero-rate" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
-<dt id="PyAudit.basics.zero_rate">
-<code class="descclassname">PyAudit.basics.</code><code class="descname">zero_rate</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L78-L106"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.zero_rate" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="descclassname">PyAudit.basics.</code><code class="descname">zero_rate</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L78-L106"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>calculate the percentage of 0 value for each feature in the DataFrame</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -279,11 +280,11 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-PyAudit.basics">
-<span id="feature-variance"></span><h3>3.2.2. feature_variance<a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="feature-variance">
+<h3>3.1.4. feature_variance<a class="headerlink" href="#feature-variance" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
-<dt id="PyAudit.basics.feature_variance">
-<code class="descclassname">PyAudit.basics.</code><code class="descname">feature_variance</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L109-L137"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.feature_variance" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="descclassname">PyAudit.basics.</code><code class="descname">feature_variance</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L109-L137"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>calculate the variance for each feature</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -316,11 +317,11 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-PyAudit.basics">
-<span id="freq-items-df"></span><h3>3.2.2. freq_items_df<a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="freq-items-df">
+<h3>3.1.5. freq_items_df<a class="headerlink" href="#freq-items-df" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
-<dt id="PyAudit.basics.freq_items_df">
-<code class="descclassname">PyAudit.basics.</code><code class="descname">freq_items_df</code><span class="sig-paren">(</span><em>df_in</em>, <em>top_n=3</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L140-L173"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.freq_items_df" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="descclassname">PyAudit.basics.</code><code class="descname">freq_items_df</code><span class="sig-paren">(</span><em>df_in</em>, <em>top_n=3</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L140-L173"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>find out the top n values and the corresponding frequency for each feature</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -358,11 +359,11 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-PyAudit.basics">
-<span id="feature-len"></span><h3>3.2.2. feature_len<a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="feature-len">
+<h3>3.1.6. feature_len<a class="headerlink" href="#feature-len" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
-<dt id="PyAudit.basics.feature_len">
-<code class="descclassname">PyAudit.basics.</code><code class="descname">feature_len</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L176-L211"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.feature_len" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="descclassname">PyAudit.basics.</code><code class="descname">feature_len</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L176-L211"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>find out the min and max length of values for each feature</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -399,14 +400,55 @@
 </dd></dl>
 
 </div>
+<div class="section" id="correlation-matrix">
+<h3>3.1.7. correlation matrix<a class="headerlink" href="#correlation-matrix" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt>
+<code class="descclassname">PyAudit.basics.</code><code class="descname">corr_matrix</code><span class="sig-paren">(</span><em>df_in</em>, <em>output_dir</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L214-L248"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>generate correlation matrix for numerical dataframe</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>df_in</strong> – input pandas DataFrame</li>
+<li><strong>output_dir</strong> – output path</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">correlation matrix</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body"><p class="first">Wenqiang Feng and Ming Chen</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Email:</th><td class="field-body"><p class="first last"><a class="reference external" href="mailto:von198&#37;&#52;&#48;gmail&#46;com">von198<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="gp">&gt;&gt;&gt; </span>     <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">&gt;&gt;&gt; </span>     <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># create DataFrame</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">corr_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+<span class="go">              A         B</span>
+<span class="go">    A  1.000000 -0.188982</span>
+<span class="go">    B -0.188982  1.000000</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
 </div>
 <div class="section" id="summary-functions">
 <h2>3.2. Summary Functions<a class="headerlink" href="#summary-functions" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="module-PyAudit.basics">
-<span id="numeric-summary"></span><h3>3.2.2. numeric_summary<a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="numeric-summary">
+<h3>3.2.1. numeric_summary<a class="headerlink" href="#numeric-summary" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
-<dt id="PyAudit.basics.numeric_summary">
-<code class="descclassname">PyAudit.basics.</code><code class="descname">numeric_summary</code><span class="sig-paren">(</span><em>df_in</em>, <em>output_dir</em>, <em>top_n=4</em>, <em>deciles=False</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L252-L337"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.numeric_summary" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="descclassname">PyAudit.basics.</code><code class="descname">numeric_summary</code><span class="sig-paren">(</span><em>df_in</em>, <em>output_dir</em>, <em>top_n=4</em>, <em>deciles=False</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L251-L336"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>generate statistical summary for numerical DateFrame</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -443,11 +485,11 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-PyAudit.basics">
-<span id="category-summary"></span><h3>3.2.2. category_summary<a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="category-summary">
+<h3>3.2.2. category_summary<a class="headerlink" href="#category-summary" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
-<dt id="PyAudit.basics.category_summary">
-<code class="descclassname">PyAudit.basics.</code><code class="descname">category_summary</code><span class="sig-paren">(</span><em>df_in</em>, <em>output_dir</em>, <em>top_n=4</em>, <em>deciles=False</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L340-L400"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.category_summary" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="descclassname">PyAudit.basics.</code><code class="descname">category_summary</code><span class="sig-paren">(</span><em>df_in</em>, <em>output_dir</em>, <em>top_n=4</em>, <em>deciles=False</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L339-L399"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>generate statistical summary for numerical DateFrame</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />

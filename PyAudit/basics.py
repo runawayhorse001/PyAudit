@@ -217,7 +217,7 @@ def corr_matrix(df_in, output_dir):
 
     :param df_in: input pandas DataFrame
     :param output_dir: output path
-    :return:
+    :return: correlation matrix
 
     :author: Wenqiang Feng and Ming Chen
     :email:  von198@gmail.com
@@ -228,7 +228,6 @@ def corr_matrix(df_in, output_dir):
     >>> # create DataFrame
     >>> df = pd.DataFrame(d)
     >>> print(corr_matrix(df))
-
                   A         B
         A  1.000000 -0.188982
         B -0.188982  1.000000
