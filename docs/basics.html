@@ -87,13 +87,19 @@
 <li class="toctree-l1"><a class="reference internal" href="preface.html">1. Preface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">2. How to Install</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">3. Python Data Audit Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-PyAudit.basics">3.1. <code class="docutils literal notranslate"><span class="pre">dtypes_class</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-PyAudit.basics">3.2. <code class="docutils literal notranslate"><span class="pre">missing_rate</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-PyAudit.basics">3.3. <code class="docutils literal notranslate"><span class="pre">zero_rate</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-PyAudit.basics">3.4. <code class="docutils literal notranslate"><span class="pre">feature_variance</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-PyAudit.basics">3.5. <code class="docutils literal notranslate"><span class="pre">freq_items_df</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-PyAudit.basics">3.6. <code class="docutils literal notranslate"><span class="pre">feature_len</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-PyAudit.basics">3.7. <code class="docutils literal notranslate"><span class="pre">numeric_summary</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-functions">3.1. Basic Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-PyAudit.basics">3.1.1. dtypes_class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-PyAudit.basics">3.1.2. missing_rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-PyAudit.basics">3.1.3. zero_rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-PyAudit.basics">3.1.4. feature_variance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-PyAudit.basics">3.1.5. freq_items_df</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-PyAudit.basics">3.1.6. feature_len</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#summary-functions">3.2. Summary Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-PyAudit.basics">3.2.1. numeric_summary</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="demo.html">4. Demos</a></li>
@@ -166,8 +172,10 @@
             
   <div class="section" id="python-data-audit-functions">
 <span id="basics"></span><h1>3. Python Data Audit Functions<a class="headerlink" href="#python-data-audit-functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic-functions">
+<h2>3.1. Basic Functions<a class="headerlink" href="#basic-functions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="module-PyAudit.basics">
-<span id="dtypes-class"></span><h2>3.7. <code class="docutils literal notranslate"><span class="pre">dtypes_class</span></code><a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h2>
+<span id="dtypes-class"></span><h3>3.2.1. dtypes_class<a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="PyAudit.basics.dtypes_class">
 <code class="descclassname">PyAudit.basics.</code><code class="descname">dtypes_class</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L6-L42"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.dtypes_class" title="Permalink to this definition">¶</a></dt>
@@ -197,7 +205,7 @@
 
 </div>
 <div class="section" id="module-PyAudit.basics">
-<span id="missing-rate"></span><h2>3.7. <code class="docutils literal notranslate"><span class="pre">missing_rate</span></code><a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h2>
+<span id="missing-rate"></span><h3>3.2.1. missing_rate<a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="PyAudit.basics.missing_rate">
 <code class="descclassname">PyAudit.basics.</code><code class="descname">missing_rate</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L45-L73"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.missing_rate" title="Permalink to this definition">¶</a></dt>
@@ -234,7 +242,7 @@
 
 </div>
 <div class="section" id="module-PyAudit.basics">
-<span id="zero-rate"></span><h2>3.7. <code class="docutils literal notranslate"><span class="pre">zero_rate</span></code><a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h2>
+<span id="zero-rate"></span><h3>3.2.1. zero_rate<a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="PyAudit.basics.zero_rate">
 <code class="descclassname">PyAudit.basics.</code><code class="descname">zero_rate</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L76-L104"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.zero_rate" title="Permalink to this definition">¶</a></dt>
@@ -271,7 +279,7 @@
 
 </div>
 <div class="section" id="module-PyAudit.basics">
-<span id="feature-variance"></span><h2>3.7. <code class="docutils literal notranslate"><span class="pre">feature_variance</span></code><a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h2>
+<span id="feature-variance"></span><h3>3.2.1. feature_variance<a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="PyAudit.basics.feature_variance">
 <code class="descclassname">PyAudit.basics.</code><code class="descname">feature_variance</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L107-L135"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.feature_variance" title="Permalink to this definition">¶</a></dt>
@@ -308,10 +316,10 @@
 
 </div>
 <div class="section" id="module-PyAudit.basics">
-<span id="freq-items-df"></span><h2>3.7. <code class="docutils literal notranslate"><span class="pre">freq_items_df</span></code><a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h2>
+<span id="freq-items-df"></span><h3>3.2.1. freq_items_df<a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="PyAudit.basics.freq_items_df">
-<code class="descclassname">PyAudit.basics.</code><code class="descname">freq_items_df</code><span class="sig-paren">(</span><em>df_in</em>, <em>top_n=3</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L138-L169"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.freq_items_df" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">PyAudit.basics.</code><code class="descname">freq_items_df</code><span class="sig-paren">(</span><em>df_in</em>, <em>top_n=3</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L138-L171"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.freq_items_df" title="Permalink to this definition">¶</a></dt>
 <dd><p>find out the top n values and the corresponding frequency for each feature</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -323,7 +331,13 @@
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">top n values and the corresponding frequency for each feature</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">top n values and the corresponding frequency for each feature</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body"><p class="first">Wenqiang Feng and Ming Chen</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Email:</th><td class="field-body"><p class="first last"><a class="reference external" href="mailto:von198&#37;&#52;&#48;gmail&#46;com">von198<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
 </td>
 </tr>
 </tbody>
@@ -344,10 +358,10 @@
 
 </div>
 <div class="section" id="module-PyAudit.basics">
-<span id="feature-len"></span><h2>3.7. <code class="docutils literal notranslate"><span class="pre">feature_len</span></code><a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h2>
+<span id="feature-len"></span><h3>3.2.1. feature_len<a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="PyAudit.basics.feature_len">
-<code class="descclassname">PyAudit.basics.</code><code class="descname">feature_len</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L172-L204"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.feature_len" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">PyAudit.basics.</code><code class="descname">feature_len</code><span class="sig-paren">(</span><em>df_in</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L174-L209"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.feature_len" title="Permalink to this definition">¶</a></dt>
 <dd><p>find out the min and max length of values for each feature</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -356,6 +370,10 @@
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>df_in</strong> – input pandas DataFrame</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">min and max length DataFrame</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">Wenqiang Feng and Ming Chen</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Email:</th><td class="field-body"><a class="reference external" href="mailto:von198&#37;&#52;&#48;gmail&#46;com">von198<span>&#64;</span>gmail<span>&#46;</span>com</a></td>
 </tr>
 </tbody>
 </table>
@@ -380,11 +398,14 @@
 </dd></dl>
 
 </div>
+</div>
+<div class="section" id="summary-functions">
+<h2>3.2. Summary Functions<a class="headerlink" href="#summary-functions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="module-PyAudit.basics">
-<span id="numeric-summary"></span><h2>3.7. <code class="docutils literal notranslate"><span class="pre">numeric_summary</span></code><a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h2>
+<span id="numeric-summary"></span><h3>3.2.1. numeric_summary<a class="headerlink" href="#module-PyAudit.basics" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="PyAudit.basics.numeric_summary">
-<code class="descclassname">PyAudit.basics.</code><code class="descname">numeric_summary</code><span class="sig-paren">(</span><em>df_in</em>, <em>deciles=False</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L207-L255"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.numeric_summary" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">PyAudit.basics.</code><code class="descname">numeric_summary</code><span class="sig-paren">(</span><em>df_in</em>, <em>deciles=False</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L212-L278"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyAudit.basics.numeric_summary" title="Permalink to this definition">¶</a></dt>
 <dd><p>generate statistical summary for numerical DateFrame</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -396,7 +417,13 @@
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">statistical summary for numerical data</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">statistical summary for numerical data</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body"><p class="first">Wenqiang Feng and Ming Chen</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Email:</th><td class="field-body"><p class="first last"><a class="reference external" href="mailto:von198&#37;&#52;&#48;gmail&#46;com">von198<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
 </td>
 </tr>
 </tbody>
@@ -406,15 +433,15 @@
 <span class="gp">&gt;&gt;&gt; </span>     <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># create DataFrame</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">num_fields</span><span class="p">,</span> <span class="n">cat_fields</span><span class="p">,</span> <span class="n">bool_fields</span><span class="p">,</span> <span class="n">data_types</span><span class="p">,</span> <span class="n">type_class</span><span class="p">)</span> <span class="o">=</span> <span class="n">dtypes_class</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">numeric_summary</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">num_fields</span><span class="p">]))</span>
-<span class="go">  feature  min       percentiles  max  ...       std  lower_95_ci  upper_95_ci  sum</span>
-<span class="go">0       A  0.0   [0.5, 1.0, 2.0]  3.0  ...  1.527525    -0.395224     3.061891  4.0</span>
-<span class="go">1       B  0.0  [0.0, 0.0, 0.25]  1.0  ...  0.500000    -0.240000     0.740000  1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">numeric_summary</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+<span class="go">      feature data_type  min_digits  ...  zero_rate  pos_rate  neg_rate</span>
+<span class="go">    A       A   float64           3  ...   0.333333  0.666667       0.0</span>
+<span class="go">    B       B     int64           3  ...   0.750000  0.250000       0.0</span>
 </pre></div>
 </div>
 </dd></dl>
 
+</div>
 </div>
 </div>
 
@@ -440,7 +467,7 @@
     <p>
         &copy; Copyright 2019, Wenqiang Feng and Ming Chen
       <span class="lastupdated">
-        Last updated on Apr 29, 2019.
+        Last updated on Apr 30, 2019.
       </span>
 
     </p>

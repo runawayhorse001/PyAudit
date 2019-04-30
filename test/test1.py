@@ -14,8 +14,7 @@ print(zero_rate(df))
 print(feature_variance(df))
 print(df)
 print(feature_len(df))
-(num_fields, cat_fields, bool_fields, data_types, type_class) = dtypes_class(df)
-print(numeric_summary(df[num_fields]))
+print(numeric_summary(df))
 
 
 d ={

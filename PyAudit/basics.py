@@ -141,8 +141,10 @@ def freq_items_df(df_in, top_n=3):
 
     :param df_in: input pandas DataFrame
     :param top_n: the number of the top values
-
     :return: top n values and the corresponding frequency for each feature
+
+    :author: Wenqiang Feng and Ming Chen
+    :email:  von198@gmail.com
 
     >>> d ={
     >>>    'num': list('1223334444'),
@@ -176,6 +178,9 @@ def feature_len(df_in):
     :param df_in: input pandas DataFrame
     :return: min and max length DataFrame
 
+    :author: Wenqiang Feng and Ming Chen
+    :email:  von198@gmail.com
+    
     >>> d = {'A': [1, 0, None, 3],
     >>>      'B': [1, 0, 0, 0],
     >>>      'C': ['a', None, 'c', 'd']}
@@ -212,18 +217,23 @@ def numeric_summary(df_in, deciles=False):
     :param deciles: flag for percentiles style
     :return: statistical summary for numerical data
 
+    :author: Wenqiang Feng and Ming Chen
+    :email:  von198@gmail.com
+
     >>> d = {'A': [1, 0, None, 3],
     >>>      'B': [1, 0, 0, 0],
     >>>      'C': ['a', None, 'c', 'd']}
     >>> # create DataFrame
     >>> df = pd.DataFrame(d)
-    >>> (num_fields, cat_fields, bool_fields, data_types, type_class) = dtypes_class(df)
-    >>> print(numeric_summary(df[num_fields]))
-      feature  min       percentiles  max  ...       std  lower_95_ci  upper_95_ci  sum
-    0       A  0.0   [0.5, 1.0, 2.0]  3.0  ...  1.527525    -0.395224     3.061891  4.0
-    1       B  0.0  [0.0, 0.0, 0.25]  1.0  ...  0.500000    -0.240000     0.740000  1.0
+    >>> print(numeric_summary(df))
+          feature data_type  min_digits  ...  zero_rate  pos_rate  neg_rate
+        A       A   float64           3  ...   0.333333  0.666667       0.0
+        B       B     int64           3  ...   0.750000  0.250000       0.0
     """
-
+    
+    (num_fields, cat_fields, bool_fields, data_types, data_class) = dtypes_class(df_in)
+    df_in = df_in[num_fields]
+    
     if deciles:
         var_name = 'deciles'
         percentiles = np.array(range(0, 110, 10))
@@ -231,26 +241,39 @@ def numeric_summary(df_in, deciles=False):
         var_name = 'percentiles'
         percentiles = [25, 50, 75]
 
-    def deciles(f):
-        return f.min(), \
+    def col_wise(f):
+        fea_len = f.map(lambda x: len(str(x)))
+        fea_mean = f.mean()
+        fea_std = f.std()
+        fea_count = np.sqrt(f.count())
+        fea_notnull = f.notnull().sum()
+        return fea_len.min(),\
+               fea_len.max(),\
+               f.shape[0],\
+               f.count(),\
+               len(f.unique()),\
+               f.min(), \
                np.percentile(f[f.notnull()], percentiles), \
                f.max(), \
-               f.mean(), \
+               fea_mean, \
                f.std(), \
-               f.mean() - 1.96 * f.std() / np.sqrt(f.count()), \
-               f.mean() + 1.96 * f.std() / np.sqrt(f.count()), \
-               f.sum()
+               fea_mean - 1.96 * fea_std  / fea_count , \
+               fea_mean + 1.96 * fea_std  / fea_count,  \
+               f.sum(),\
+               f.isnull().sum() /f.shape[0],\
+               ((f == 0).sum(axis=0)) / fea_notnull,\
+               ((f > 0).sum(axis=0)) / fea_notnull,\
+               ((f < 0).sum(axis=0)) / fea_notnull
 
-    temp = np.transpose(df_in.apply(deciles))
-
-    d = {'feature': df_in.columns,
-         'min': [i[0] for i in temp],
-         var_name: [i[1] for i in temp],
-         'max': [i[2] for i in temp],
-         'mean': [i[3] for i in temp],
-         'std': [i[4] for i in temp],
-         'lower_95_ci': [i[5] for i in temp],
-         'upper_95_ci': [i[6] for i in temp],
-         'sum': [i[7] for i in temp]}
+    temp = np.transpose(df_in.apply(col_wise))
+    
+    col_names = ['feature','data_type','min_digits','max_digits','row_count',
+                 'notnull_count','distinct_count', 'min',var_name,'max','mean',
+                 'std','lower_95_ci','upper_95_ci','sum','missing_rate','zero_rate',
+                 'pos_rate','neg_rate']
+    col_value = [df_in.columns] + [df_in.dtypes] \
+              + [[col[i] for col in temp] for i in range(len(col_names)-2)]
+    
+    d = {key: value for key, value in zip(col_names, col_value)}
     return pd.DataFrame(d)
 
