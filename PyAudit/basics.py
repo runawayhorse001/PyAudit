@@ -1,6 +1,9 @@
+import os
+import shutil
 import numpy as np
 import pandas as pd
-from scipy.stats import norm
+import seaborn as sns
+from matplotlib import pyplot as plt
 
 
 def dtypes_class(df_in):
@@ -180,7 +183,7 @@ def feature_len(df_in):
 
     :author: Wenqiang Feng and Ming Chen
     :email:  von198@gmail.com
-    
+
     >>> d = {'A': [1, 0, None, 3],
     >>>      'B': [1, 0, 0, 0],
     >>>      'C': ['a', None, 'c', 'd']}
@@ -209,7 +212,45 @@ def feature_len(df_in):
     return pd.DataFrame(d)
 
 
-def numeric_summary(df_in, deciles=False):
+def corr_matrix(df_in, output_dir):
+    """
+    generate correlation matrix for numerical dataframe
+
+    :param df_in: input pandas DataFrame
+    :param output_dir: output path
+    :return:
+
+    :author: Wenqiang Feng and Ming Chen
+    :email:  von198@gmail.com
+
+    >>> d = {'A': [1, 0, None, 3],
+    >>>      'B': [1, 0, 0, 0],
+    >>>      'C': ['a', None, 'c', 'd']}
+    >>> # create DataFrame
+    >>> df = pd.DataFrame(d)
+    >>> print(corr_matrix(df))
+
+                  A         B
+        A  1.000000 -0.188982
+        B -0.188982  1.000000
+    """
+    (num_fields, cat_fields, bool_fields, data_types, data_class) = dtypes_class(df_in)
+    corr = df_in[num_fields].corr()
+    plt.figure(figsize=(16, 5))  # Push new figure on stack
+    sns_plot = sns.heatmap(corr, cmap="YlGnBu",
+                           xticklabels=corr.columns.values, yticklabels=corr.columns.values)
+    def mkdir(path):
+        try:
+            os.mkdir(path)
+        except OSError:
+            pass
+
+    mkdir(output_dir)
+    plt.savefig("{}/corr.png".format(output_dir))
+    return corr
+
+
+def numeric_summary(df_in, output_dir, top_n=4, deciles=False):
     """
     generate statistical summary for numerical DateFrame
 
@@ -247,11 +288,16 @@ def numeric_summary(df_in, deciles=False):
         fea_std = f.std()
         fea_count = np.sqrt(f.count())
         fea_notnull = f.notnull().sum()
+        item_count = pd.value_counts(f)
+        top_items = item_count.index[:top_n].values
+        top_freqs = item_count.values[:top_n]
         return fea_len.min(),\
                fea_len.max(),\
                f.shape[0],\
                f.count(),\
-               len(f.unique()),\
+               len(f.unique()), \
+               top_items, \
+               top_freqs, \
                f.min(), \
                np.percentile(f[f.notnull()], percentiles), \
                f.max(), \
@@ -268,12 +314,89 @@ def numeric_summary(df_in, deciles=False):
     temp = np.transpose(df_in.apply(col_wise))
     
     col_names = ['feature','data_type','min_digits','max_digits','row_count',
-                 'notnull_count','distinct_count', 'min',var_name,'max','mean',
+                 'notnull_count','distinct_count', 'top_values','top_freqs','min',var_name,'max','mean',
                  'std','lower_95_ci','upper_95_ci','sum','missing_rate','zero_rate',
                  'pos_rate','neg_rate']
     col_value = [df_in.columns] + [df_in.dtypes] \
               + [[col[i] for col in temp] for i in range(len(col_names)-2)]
     
     d = {key: value for key, value in zip(col_names, col_value)}
-    return pd.DataFrame(d)
+
+    def mkdir(path):
+        try:
+            os.mkdir(path)
+        except OSError:
+            pass
+    mkdir(output_dir)
+
+    num_sum = pd.DataFrame(d)
+    num_sum.to_csv('{}/numerical_summary.csv'.format(output_dir))
+
+    plt.figure()  # Push new figure on stack
+    sns.pairplot(df_in.fillna(0), kind="reg")
+    plt.savefig("{}/pairplot.png".format(output_dir))
+    return num_sum
+
+
+def category_summary(df_in, output_dir, top_n=4, deciles=False):
+    """
+    generate statistical summary for numerical DateFrame
+
+    :param df_in: input pandas DataFrame
+    :param deciles: flag for percentiles style
+    :return: statistical summary for numerical data
+
+    :author: Wenqiang Feng and Ming Chen
+    :email:  von198@gmail.com
+
+    >>> d = {'A': [1, 0, None, 3],
+    >>>      'B': [1, 0, 0, 0],
+    >>>      'C': ['a', None, 'c', 'd']}
+    >>> # create DataFrame
+    >>> df = pd.DataFrame(d)
+    >>> print(numeric_summary(df))
+         feature data_type  min_digits  ...  top_values  top_freqs  missing_rate
+       C       C    object           1  ...   [a, d, c]  [1, 1, 1]          0.25
+    """
+
+    (num_fields, cat_fields, bool_fields, data_types, data_class) = dtypes_class(df_in)
+    df_in = df_in[cat_fields]
+
+    def col_wise(f):
+        fea_len = f.map(lambda x: len(str(x)))
+        fea_count = np.sqrt(f.count())
+        fea_notnull = f.notnull().sum()
+        item_count = pd.value_counts(f)
+        top_items = item_count.index[:top_n].values
+        top_freqs = item_count.values[:top_n]
+        return fea_len.min(), \
+               fea_len.max(), \
+               f.shape[0], \
+               f.count(), \
+               len(f.unique()), \
+               top_items, \
+               top_freqs, \
+               f.isnull().sum() / f.shape[0]
+
+    temp = np.transpose(df_in.apply(col_wise))
+
+    col_names = ['feature', 'data_type', 'min_digits', 'max_digits', 'row_count',
+                 'notnull_count', 'distinct_count', 'top_values', 'top_freqs', 'missing_rate']
+    col_value = [df_in.columns] + [df_in.dtypes] \
+                + [[col[i] for col in temp] for i in range(len(col_names) - 2)]
+
+    d = {key: value for key, value in zip(col_names, col_value)}
+
+    def mkdir(path):
+        try:
+            os.mkdir(path)
+        except OSError:
+            pass
+
+    mkdir(output_dir)
+
+    cat_sum = pd.DataFrame(d)
+    cat_sum.to_csv('{}/category_summary.csv'.format(output_dir))
+
+    return cat_sum
 

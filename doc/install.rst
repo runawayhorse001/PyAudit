@@ -47,7 +47,7 @@ Test
 
 ``test1.py``
 
-.. literalinclude:: ../test/test1.py
+.. literalinclude:: ../test/test.py
      :language: python
 
 

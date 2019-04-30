@@ -1,8 +1,11 @@
 from PyAudit.basics import missing_rate, zero_rate, dtypes_class
 from PyAudit.basics import feature_variance, freq_items_df, feature_len
-from PyAudit.basics import numeric_summary
+from PyAudit.basics import corr_matrix,numeric_summary, category_summary
 import pandas as pd
+import os, sys
 
+output = os.path.abspath(os.path.join(sys.path[0])) + '/output'
+print(output)
 d = {'A': [1, 0, None, 3],
      'B': [1, 0, 0, 0],
      'C': ['a', None, 'c', 'd']}
@@ -14,7 +17,9 @@ print(zero_rate(df))
 print(feature_variance(df))
 print(df)
 print(feature_len(df))
-print(numeric_summary(df))
+print(numeric_summary(df, output))
+print(category_summary(df, output))
+print(corr_matrix(df, output))
 
 
 d ={
@@ -36,8 +41,10 @@ print(bool_fields)
 print(data_types)
 print(type_class)
 print(missing_rate(df))
-#print(zero_rate(df))
+print(zero_rate(df))
 
 print(freq_items_df(df, top_n=4))
 print(feature_len(df))
-print(numeric_summary(df[num_fields]))
+print(numeric_summary(df, output))
+print(category_summary(df, output))
+print(corr_matrix(df, output))

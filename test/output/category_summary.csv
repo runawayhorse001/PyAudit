@@ -1,0 +1,4 @@
+,feature,data_type,min_digits,max_digits,row_count,notnull_count,distinct_count,top_values,top_freqs,missing_rate
+ChestPain,ChestPain,object,7,12,303,303,4,['asymptomatic' 'nonanginal' 'nontypical' 'typical'],[144  86  50  23],0.0
+Thal,Thal,object,3,10,303,301,4,['normal' 'reversable' 'fixed'],[166 117  18],0.006600660066006601
+AHD,AHD,object,2,3,303,303,2,['No' 'Yes'],[164 139],0.0

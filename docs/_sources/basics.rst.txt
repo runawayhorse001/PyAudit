@@ -52,3 +52,9 @@ numeric_summary
 
 .. automodule:: PyAudit.basics	
    :members: numeric_summary      
+
+category_summary
+----------------
+
+.. automodule:: PyAudit.basics	
+   :members: category_summary         
