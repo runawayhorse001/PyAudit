@@ -208,7 +208,7 @@ def numeric_summary(df_in, deciles=False):
     """
     generate statistical summary for numerical DateFrame
 
-    :param df_in:
+    :param df_in: input pandas DataFrame
     :param deciles: flag for percentiles style
     :return: statistical summary for numerical data
 
