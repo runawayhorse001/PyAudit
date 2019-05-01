@@ -73,3 +73,11 @@ category_summary
 .. automodule:: PyAudit.basics	
    :members: category_summary 
    :noindex:           
+
+
+auditing
+--------
+
+.. automodule:: PyAudit.basics   
+   :members: auditing 
+   :noindex:    
