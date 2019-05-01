@@ -75,6 +75,9 @@ category_summary
    :noindex:           
 
 
+Auditing Function
++++++++++++++++++
+
 auditing
 --------
 
