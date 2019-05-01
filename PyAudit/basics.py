@@ -253,7 +253,11 @@ def numeric_summary(df_in, output_dir, top_n=4, deciles=False):
     generate statistical summary for numerical DateFrame
 
     :param df_in: input pandas DataFrame
+    :param output_dir: output files directory
+    :param top_n: the number of the top item to show
     :param deciles: flag for percentiles style
+
+
     :return: statistical summary for numerical data
 
     :author: Wenqiang Feng and Ming Chen
@@ -336,12 +340,13 @@ def numeric_summary(df_in, output_dir, top_n=4, deciles=False):
     return num_sum
 
 
-def category_summary(df_in, output_dir, top_n=4, deciles=False):
+def category_summary(df_in, output_dir, top_n=4):
     """
     generate statistical summary for numerical DateFrame
 
     :param df_in: input pandas DataFrame
-    :param deciles: flag for percentiles style
+    :param output_dir: output files directory
+    :param top_n: the number of the top item to show
     :return: statistical summary for numerical data
 
     :author: Wenqiang Feng and Ming Chen
@@ -362,8 +367,6 @@ def category_summary(df_in, output_dir, top_n=4, deciles=False):
 
     def col_wise(f):
         fea_len = f.map(lambda x: len(str(x)))
-        fea_count = np.sqrt(f.count())
-        fea_notnull = f.notnull().sum()
         item_count = pd.value_counts(f)
         top_items = item_count.index[:top_n].values
         top_freqs = item_count.values[:top_n]
@@ -398,3 +401,32 @@ def category_summary(df_in, output_dir, top_n=4, deciles=False):
 
     return cat_sum
 
+
+def auditing(df_in, output_dir, top_n=4, deciles=False):
+    """
+    generate audited results
+
+    :param df_in: input pandas DataFrame
+    :param output_dir: output files directory
+    :param top_n: the number of the top item to show
+    :param deciles: flag for percentiles style
+
+    :author: Wenqiang Feng and Ming Chen
+    :email:  von198@gmail.com
+
+    >>> d = {'A': [1, 0, None, 3],
+    >>>      'B': [1, 0, 0, 0],
+    >>>      'C': ['a', None, 'c', 'd']}
+    >>> # create DataFrame
+    >>> df = pd.DataFrame(d)
+    >>> print(auditing(df,path))
+          feature data_type  min_digits  ...  zero_rate  pos_rate  neg_rate
+        A       A   float64           3  ...   0.333333  0.666667       0.0
+        B       B     int64           3  ...   0.750000  0.250000       0.0
+    """
+
+    num_summary = numeric_summary(df_in, output_dir=output_dir, top_n=top_n, deciles=deciles)
+    cat_summary = category_summary(df_in, output_dir=output_dir, top_n=top_n)
+    corr = corr_matrix(df_in, output_dir=output_dir)
+
+    return num_summary, cat_summary, corr

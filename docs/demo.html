@@ -91,7 +91,11 @@
 <li class="toctree-l1"><a class="reference internal" href="preface.html">1. Preface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">2. How to Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basics.html">3. Python Data Audit Functions</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Auditing Demos</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Auditing Demos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#auditing-in-one-function">4.1. Auditing in one function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#auditing-function-by-function">4.2. Auditing function by function</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html">5. Main Reference</a></li>
 </ul>
 
@@ -161,15 +165,91 @@
             
   <div class="section" id="auditing-demos">
 <span id="demo"></span><h1>4. Auditing Demos<a class="headerlink" href="#auditing-demos" title="Permalink to this headline">¶</a></h1>
-<p>This is a demo to show how to aduit <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> using <code class="docutils literal notranslate"><span class="pre">PyAudit</span></code>:</p>
+<p>The following demos are designed to show how to use <code class="docutils literal notranslate"><span class="pre">PyAudit</span></code> to aduit <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>.</p>
+<div class="section" id="auditing-in-one-function">
+<h2>4.1. Auditing in one function<a class="headerlink" href="#auditing-in-one-function" title="Permalink to this headline">¶</a></h2>
 <p>For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#import python libraries</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># import python libraries</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 
 <span class="c1"># import PyAudit module</span>
-<span class="kn">from</span> <span class="nn">PyAudit.basics</span> <span class="kn">import</span> <span class="n">corr_matrix</span><span class="p">,</span><span class="n">numeric_summary</span><span class="p">,</span> <span class="n">category_summary</span>
+<span class="kn">from</span> <span class="nn">PyAudit.basics</span> <span class="kn">import</span> <span class="n">auditing</span>
+
+<span class="c1"># Audit output path</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">+</span> <span class="s1">&#39;/output&#39;</span>
+
+<span class="c1"># load DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Heart.csv&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Sex&#39;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">})</span>
+<span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># generate the audit results (.csv files in output folder)</span>
+<span class="n">num_summary</span><span class="p">,</span> <span class="n">cat_summary</span><span class="p">,</span> <span class="n">corr</span> <span class="o">=</span> <span class="n">auditing</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+
+<span class="c1"># the following is optional, since the .csv files are in the output folder</span>
+<span class="k">print</span><span class="p">(</span><span class="n">num_summary</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">cat_summary</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">corr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Result:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>   Age    Sex     ChestPain  RestBP  Chol  ...  Oldpeak  Slope   Ca        Thal  AHD
+<span class="m">0</span>   <span class="m">63</span>   True       typical     <span class="m">145</span>   <span class="m">233</span>  ...      <span class="m">2</span>.3      <span class="m">3</span>  <span class="m">0</span>.0       fixed   No
+<span class="m">1</span>   <span class="m">67</span>   True  asymptomatic     <span class="m">160</span>   <span class="m">286</span>  ...      <span class="m">1</span>.5      <span class="m">2</span>  <span class="m">3</span>.0      normal  Yes
+<span class="m">2</span>   <span class="m">67</span>   True  asymptomatic     <span class="m">120</span>   <span class="m">229</span>  ...      <span class="m">2</span>.6      <span class="m">2</span>  <span class="m">2</span>.0  reversable  Yes
+<span class="m">3</span>   <span class="m">37</span>   True    nonanginal     <span class="m">130</span>   <span class="m">250</span>  ...      <span class="m">3</span>.5      <span class="m">3</span>  <span class="m">0</span>.0      normal   No
+<span class="m">4</span>   <span class="m">41</span>  False    nontypical     <span class="m">130</span>   <span class="m">204</span>  ...      <span class="m">1</span>.4      <span class="m">1</span>  <span class="m">0</span>.0      normal   No
+
+<span class="o">[</span><span class="m">5</span> rows x <span class="m">14</span> columns<span class="o">]</span>
+         feature data_type  min_digits  ...  zero_rate  pos_rate  neg_rate
+Age          Age     int64           <span class="m">4</span>  ...   <span class="m">0</span>.000000  <span class="m">1</span>.000000       <span class="m">0</span>.0
+RestBP    RestBP     int64           <span class="m">4</span>  ...   <span class="m">0</span>.000000  <span class="m">1</span>.000000       <span class="m">0</span>.0
+Chol        Chol     int64           <span class="m">5</span>  ...   <span class="m">0</span>.000000  <span class="m">1</span>.000000       <span class="m">0</span>.0
+Fbs          Fbs     int64           <span class="m">3</span>  ...   <span class="m">0</span>.851485  <span class="m">0</span>.148515       <span class="m">0</span>.0
+RestECG  RestECG     int64           <span class="m">3</span>  ...   <span class="m">0</span>.498350  <span class="m">0</span>.501650       <span class="m">0</span>.0
+MaxHR      MaxHR     int64           <span class="m">4</span>  ...   <span class="m">0</span>.000000  <span class="m">1</span>.000000       <span class="m">0</span>.0
+ExAng      ExAng     int64           <span class="m">3</span>  ...   <span class="m">0</span>.673267  <span class="m">0</span>.326733       <span class="m">0</span>.0
+Oldpeak  Oldpeak   float64           <span class="m">3</span>  ...   <span class="m">0</span>.326733  <span class="m">0</span>.673267       <span class="m">0</span>.0
+Slope      Slope     int64           <span class="m">3</span>  ...   <span class="m">0</span>.000000  <span class="m">1</span>.000000       <span class="m">0</span>.0
+Ca            Ca   float64           <span class="m">3</span>  ...   <span class="m">0</span>.588629  <span class="m">0</span>.411371       <span class="m">0</span>.0
+
+<span class="o">[</span><span class="m">10</span> rows x <span class="m">21</span> columns<span class="o">]</span>
+             feature data_type  ...          top_freqs  missing_rate
+Sex              Sex      bool  ...          <span class="o">[</span><span class="m">206</span>, <span class="m">97</span><span class="o">]</span>      <span class="m">0</span>.000000
+ChestPain  ChestPain    object  ...  <span class="o">[</span><span class="m">144</span>, <span class="m">86</span>, <span class="m">50</span>, <span class="m">23</span><span class="o">]</span>      <span class="m">0</span>.000000
+Thal            Thal    object  ...     <span class="o">[</span><span class="m">166</span>, <span class="m">117</span>, <span class="m">18</span><span class="o">]</span>      <span class="m">0</span>.006601
+AHD              AHD    object  ...         <span class="o">[</span><span class="m">164</span>, <span class="m">139</span><span class="o">]</span>      <span class="m">0</span>.000000
+
+<span class="o">[</span><span class="m">4</span> rows x <span class="m">10</span> columns<span class="o">]</span>
+              Age    RestBP      Chol  ...   Oldpeak     Slope        Ca
+Age      <span class="m">1</span>.000000  <span class="m">0</span>.284946  <span class="m">0</span>.208950  ...  <span class="m">0</span>.203805  <span class="m">0</span>.161770  <span class="m">0</span>.362605
+RestBP   <span class="m">0</span>.284946  <span class="m">1</span>.000000  <span class="m">0</span>.130120  ...  <span class="m">0</span>.189171  <span class="m">0</span>.117382  <span class="m">0</span>.098773
+Chol     <span class="m">0</span>.208950  <span class="m">0</span>.130120  <span class="m">1</span>.000000  ...  <span class="m">0</span>.046564 -0.004062  <span class="m">0</span>.119000
+Fbs      <span class="m">0</span>.118530  <span class="m">0</span>.175340  <span class="m">0</span>.009841  ...  <span class="m">0</span>.005747  <span class="m">0</span>.059894  <span class="m">0</span>.145478
+RestECG  <span class="m">0</span>.148868  <span class="m">0</span>.146560  <span class="m">0</span>.171043  ...  <span class="m">0</span>.114133  <span class="m">0</span>.133946  <span class="m">0</span>.128343
+MaxHR   -0.393806 -0.045351 -0.003432  ... -0.343085 -0.385601 -0.264246
+ExAng    <span class="m">0</span>.091661  <span class="m">0</span>.064762  <span class="m">0</span>.061310  ...  <span class="m">0</span>.288223  <span class="m">0</span>.257748  <span class="m">0</span>.145570
+Oldpeak  <span class="m">0</span>.203805  <span class="m">0</span>.189171  <span class="m">0</span>.046564  ...  <span class="m">1</span>.000000  <span class="m">0</span>.577537  <span class="m">0</span>.295832
+Slope    <span class="m">0</span>.161770  <span class="m">0</span>.117382 -0.004062  ...  <span class="m">0</span>.577537  <span class="m">1</span>.000000  <span class="m">0</span>.110119
+Ca       <span class="m">0</span>.362605  <span class="m">0</span>.098773  <span class="m">0</span>.119000  ...  <span class="m">0</span>.295832  <span class="m">0</span>.110119  <span class="m">1</span>.000000
+
+<span class="o">[</span><span class="m">10</span> rows x <span class="m">10</span> columns<span class="o">]</span>
+
+Process finished with <span class="nb">exit</span> code <span class="m">0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="auditing-function-by-function">
+<h2>4.2. Auditing function by function<a class="headerlink" href="#auditing-function-by-function" title="Permalink to this headline">¶</a></h2>
+<p>For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># import python libraries</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+
+<span class="c1"># import PyAudit module</span>
+<span class="kn">from</span> <span class="nn">PyAudit.basics</span> <span class="kn">import</span> <span class="n">corr_matrix</span><span class="p">,</span> <span class="n">numeric_summary</span><span class="p">,</span> <span class="n">category_summary</span>
 
 <span class="c1"># Audit output path</span>
 <span class="n">output</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">+</span> <span class="s1">&#39;/output&#39;</span>
@@ -260,6 +340,7 @@ Process finished with <span class="nb">exit</span> code <span class="m">0</span>
 </pre></div>
 </div>
 </div>
+</div>
 
 
            </div>
@@ -283,7 +364,7 @@ Process finished with <span class="nb">exit</span> code <span class="m">0</span>
     <p>
         &copy; Copyright 2019, Wenqiang Feng and Ming Chen
       <span class="lastupdated">
-        Last updated on Apr 30, 2019.
+        Last updated on May 01, 2019.
       </span>
 
     </p>

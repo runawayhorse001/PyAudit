@@ -452,7 +452,7 @@
 <h3>3.2.1. numeric_summary<a class="headerlink" href="#numeric-summary" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt>
-<code class="descclassname">PyAudit.basics.</code><code class="descname">numeric_summary</code><span class="sig-paren">(</span><em>df_in</em>, <em>output_dir</em>, <em>top_n=4</em>, <em>deciles=False</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L251-L336"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">PyAudit.basics.</code><code class="descname">numeric_summary</code><span class="sig-paren">(</span><em>df_in</em>, <em>output_dir</em>, <em>top_n=4</em>, <em>deciles=False</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L251-L340"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>generate statistical summary for numerical DateFrame</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -460,6 +460,8 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>df_in</strong> – input pandas DataFrame</li>
+<li><strong>output_dir</strong> – output files directory</li>
+<li><strong>top_n</strong> – the number of the top item to show</li>
 <li><strong>deciles</strong> – flag for percentiles style</li>
 </ul>
 </td>
@@ -493,7 +495,7 @@
 <h3>3.2.2. category_summary<a class="headerlink" href="#category-summary" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt>
-<code class="descclassname">PyAudit.basics.</code><code class="descname">category_summary</code><span class="sig-paren">(</span><em>df_in</em>, <em>output_dir</em>, <em>top_n=4</em>, <em>deciles=False</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L339-L399"><span class="viewcode-link">[source]</span></a></dt>
+<code class="descclassname">PyAudit.basics.</code><code class="descname">category_summary</code><span class="sig-paren">(</span><em>df_in</em>, <em>output_dir</em>, <em>top_n=4</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L343-L402"><span class="viewcode-link">[source]</span></a></dt>
 <dd><p>generate statistical summary for numerical DateFrame</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -501,7 +503,8 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>df_in</strong> – input pandas DataFrame</li>
-<li><strong>deciles</strong> – flag for percentiles style</li>
+<li><strong>output_dir</strong> – output files directory</li>
+<li><strong>top_n</strong> – the number of the top item to show</li>
 </ul>
 </td>
 </tr>
@@ -554,7 +557,7 @@
     <p>
         &copy; Copyright 2019, Wenqiang Feng and Ming Chen
       <span class="lastupdated">
-        Last updated on Apr 30, 2019.
+        Last updated on May 01, 2019.
       </span>
 
     </p>
