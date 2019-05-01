@@ -14,21 +14,21 @@ You can install the PyAudit from [PyPI](https://pypi.org/project/PyAudit):
 
 Or you can istall the PyAudit from the repo:
 
-### clone
+#### 1. clone
 
 	git https://github.com/runawayhorse001/PyAudit.git
 
-### install 
+#### 2. install 
 
 	cd PyAudit
 	pip install -r requirements.txt 
 	python setup.py install
 
-### uninstall 
+#### 3. uninstall 
 
 	pip uninstall PyAudit
 
-### test 
+#### 4. test 
 
 	cd PyAudit/test
 	python test.py
