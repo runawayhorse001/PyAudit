@@ -12,8 +12,22 @@ How to Install
 	   If you know neither yourself nor your enemy, you will always endanger yourself. 
 	   – idiom, from Sunzi’s Art of War
 
-Clone the Repository
+Install with ``pip``
 ++++++++++++++++++++
+
+You can install the ``PyAudit`` from [PyPI](https://pypi.org/project/PyAudit):
+
+.. code-block:: bash
+
+    pip install PyAudit
+
+
+Install from Repo
++++++++++++++++++
+
+
+Clone the Repository
+--------------------
 
 .. code-block:: bash
 
@@ -21,7 +35,7 @@ Clone the Repository
 
 
 Install
-+++++++
+-------
 
 .. code-block:: bash
 
@@ -30,14 +44,14 @@ Install
 	python setup.py install
 
 Uninstall
-+++++++++
+---------
 
 .. code-block:: bash
 
 	pip uninstall statspy
 
 Test
-++++
+----
 
 .. code-block:: bash
 

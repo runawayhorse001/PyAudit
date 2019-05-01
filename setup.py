@@ -14,7 +14,7 @@ except IOError:
 
 setup(name='PyAudit',
 	    install_requires=requirements,
-      version='1.0',
+      version='1.0.1',
       description='Python Data Audit library',
       author='Wenqiang Feng and Ming Chen',
       author_email='von198@gmail.com',
