@@ -1,7 +1,7 @@
 # PyAudit: Python Data Audit 
 
 <p align="center">
-  <img width="1200" height="300" src="doc/images/logo.png">
+  <img width="1200" height="300" src="https://github.com/runawayhorse001/PyAudit/blob/master/doc/images/logo.png">
 </p>
 
 This is our Python Data Audit library repositories.
