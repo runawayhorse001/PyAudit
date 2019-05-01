@@ -1,59 +1,42 @@
 .. _demo:
 
-=====
-Demos 
-=====
+==============
+Auditing Demos 
+==============
+
 .. |eg| replace:: For example:
 
+.. |re| replace:: Result:
 
-This is a usage of :func:`PyAudit.basics.dtypes_class`:
 
-
-|eg|
-
->>> from PyAudit.basics import missing_rate, zero_rate, dtypes_class
->>> df = pd.read_csv('Heart.csv', dtype={'Sex': bool})
->>> (num_fields, cat_fields, bool_fields, data_types, type_class) = dtypes_class(df)
-['Age', 'RestBP', 'Chol', 'Fbs', 'RestECG', 'MaxHR', 'ExAng', 'Oldpeak', 'Slope', 'Ca']
-['ChestPain', 'Thal', 'AHD']
-['Sex']
-      feature   dtypes
-0         Age    int64
-1         Sex     bool
-2   ChestPain   object
-3      RestBP    int64
-4        Chol    int64
-5         Fbs    int64
-6     RestECG    int64
-7       MaxHR    int64
-8       ExAng    int64
-9     Oldpeak  float64
-10      Slope    int64
-11         Ca  float64
-12       Thal   object
-13        AHD   object
-      feature   dtypes     class
-0         Age    int64   numeric
-1         Sex     bool      bool
-2   ChestPain   object  category
-3      RestBP    int64   numeric
-4        Chol    int64   numeric
-5         Fbs    int64   numeric
-6     RestECG    int64   numeric
-7       MaxHR    int64   numeric
-8       ExAng    int64   numeric
-9     Oldpeak  float64   numeric
-10      Slope    int64   numeric
-11         Ca  float64   numeric
-12       Thal   object  category
-13        AHD   object  category
-
-This is a usage of :func:`PyAudit.basics.feature_variance`:
+This is a demo to show how to aduit ``pd.DataFrame`` using ``PyAudit``: 
 
 
 |eg|
 
+.. literalinclude:: ../test/demo.py
+     :language: python
 
+
+|re|
+
+.. code-block:: bash
+
+	   Age    Sex     ChestPain  RestBP  Chol  ...  Oldpeak  Slope   Ca        Thal  AHD
+	0   63   True       typical     145   233  ...      2.3      3  0.0       fixed   No
+	1   67   True  asymptomatic     160   286  ...      1.5      2  3.0      normal  Yes
+	2   67   True  asymptomatic     120   229  ...      2.6      2  2.0  reversable  Yes
+	3   37   True    nonanginal     130   250  ...      3.5      3  0.0      normal   No
+	4   41  False    nontypical     130   204  ...      1.4      1  0.0      normal   No
+
+and 
+
+
+  .. figure:: images/output.png
+    :align: center
+
+  .. figure:: images/results.png
+    :align: center    
 
 
 .. code-block:: bash

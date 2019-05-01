@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4. Demos &mdash; PyAudit: Python Data Audit Library API 1.00 documentation</title>
+  <title>4. Auditing Demos &mdash; PyAudit: Python Data Audit Library API 1.00 documentation</title>
   
 
   
@@ -91,7 +91,7 @@
 <li class="toctree-l1"><a class="reference internal" href="preface.html">1. Preface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">2. How to Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basics.html">3. Python Data Audit Functions</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Demos</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Auditing Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html">5. Main Reference</a></li>
 </ul>
 
@@ -138,7 +138,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>4. Demos</li>
+      <li>4. Auditing Demos</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -159,50 +159,49 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="demos">
-<span id="demo"></span><h1>4. Demos<a class="headerlink" href="#demos" title="Permalink to this headline">¶</a></h1>
-<p>This is a usage of <a class="reference internal" href="basics.html#PyAudit.basics.dtypes_class" title="PyAudit.basics.dtypes_class"><code class="xref py py-func docutils literal notranslate"><span class="pre">PyAudit.basics.dtypes_class()</span></code></a>:</p>
+  <div class="section" id="auditing-demos">
+<span id="demo"></span><h1>4. Auditing Demos<a class="headerlink" href="#auditing-demos" title="Permalink to this headline">¶</a></h1>
+<p>This is a demo to show how to aduit <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> using <code class="docutils literal notranslate"><span class="pre">PyAudit</span></code>:</p>
 <p>For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">PyAudit.basics</span> <span class="k">import</span> <span class="n">missing_rate</span><span class="p">,</span> <span class="n">zero_rate</span><span class="p">,</span> <span class="n">dtypes_class</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Heart.csv&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Sex&#39;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">})</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">num_fields</span><span class="p">,</span> <span class="n">cat_fields</span><span class="p">,</span> <span class="n">bool_fields</span><span class="p">,</span> <span class="n">data_types</span><span class="p">,</span> <span class="n">type_class</span><span class="p">)</span> <span class="o">=</span> <span class="n">dtypes_class</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="go">[&#39;Age&#39;, &#39;RestBP&#39;, &#39;Chol&#39;, &#39;Fbs&#39;, &#39;RestECG&#39;, &#39;MaxHR&#39;, &#39;ExAng&#39;, &#39;Oldpeak&#39;, &#39;Slope&#39;, &#39;Ca&#39;]</span>
-<span class="go">[&#39;ChestPain&#39;, &#39;Thal&#39;, &#39;AHD&#39;]</span>
-<span class="go">[&#39;Sex&#39;]</span>
-<span class="go">      feature   dtypes</span>
-<span class="go">0         Age    int64</span>
-<span class="go">1         Sex     bool</span>
-<span class="go">2   ChestPain   object</span>
-<span class="go">3      RestBP    int64</span>
-<span class="go">4        Chol    int64</span>
-<span class="go">5         Fbs    int64</span>
-<span class="go">6     RestECG    int64</span>
-<span class="go">7       MaxHR    int64</span>
-<span class="go">8       ExAng    int64</span>
-<span class="go">9     Oldpeak  float64</span>
-<span class="go">10      Slope    int64</span>
-<span class="go">11         Ca  float64</span>
-<span class="go">12       Thal   object</span>
-<span class="go">13        AHD   object</span>
-<span class="go">      feature   dtypes     class</span>
-<span class="go">0         Age    int64   numeric</span>
-<span class="go">1         Sex     bool      bool</span>
-<span class="go">2   ChestPain   object  category</span>
-<span class="go">3      RestBP    int64   numeric</span>
-<span class="go">4        Chol    int64   numeric</span>
-<span class="go">5         Fbs    int64   numeric</span>
-<span class="go">6     RestECG    int64   numeric</span>
-<span class="go">7       MaxHR    int64   numeric</span>
-<span class="go">8       ExAng    int64   numeric</span>
-<span class="go">9     Oldpeak  float64   numeric</span>
-<span class="go">10      Slope    int64   numeric</span>
-<span class="go">11         Ca  float64   numeric</span>
-<span class="go">12       Thal   object  category</span>
-<span class="go">13        AHD   object  category</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#import python libraries</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+
+<span class="c1"># import PyAudit module</span>
+<span class="kn">from</span> <span class="nn">PyAudit.basics</span> <span class="kn">import</span> <span class="n">corr_matrix</span><span class="p">,</span><span class="n">numeric_summary</span><span class="p">,</span> <span class="n">category_summary</span>
+
+<span class="c1"># Audit output path</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">+</span> <span class="s1">&#39;/output&#39;</span>
+
+<span class="c1"># load DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Heart.csv&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Sex&#39;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">})</span>
+<span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># generate the audit results (.csv files in output folder)</span>
+<span class="n">numeric_summary</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+<span class="n">category_summary</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+<span class="n">corr_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This is a usage of <code class="xref py py-func docutils literal notranslate"><span class="pre">PyAudit.basics.feature_variance()</span></code>:</p>
-<p>For example:</p>
+<p>Result:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>   Age    Sex     ChestPain  RestBP  Chol  ...  Oldpeak  Slope   Ca        Thal  AHD
+<span class="m">0</span>   <span class="m">63</span>   True       typical     <span class="m">145</span>   <span class="m">233</span>  ...      <span class="m">2</span>.3      <span class="m">3</span>  <span class="m">0</span>.0       fixed   No
+<span class="m">1</span>   <span class="m">67</span>   True  asymptomatic     <span class="m">160</span>   <span class="m">286</span>  ...      <span class="m">1</span>.5      <span class="m">2</span>  <span class="m">3</span>.0      normal  Yes
+<span class="m">2</span>   <span class="m">67</span>   True  asymptomatic     <span class="m">120</span>   <span class="m">229</span>  ...      <span class="m">2</span>.6      <span class="m">2</span>  <span class="m">2</span>.0  reversable  Yes
+<span class="m">3</span>   <span class="m">37</span>   True    nonanginal     <span class="m">130</span>   <span class="m">250</span>  ...      <span class="m">3</span>.5      <span class="m">3</span>  <span class="m">0</span>.0      normal   No
+<span class="m">4</span>   <span class="m">41</span>  False    nontypical     <span class="m">130</span>   <span class="m">204</span>  ...      <span class="m">1</span>.4      <span class="m">1</span>  <span class="m">0</span>.0      normal   No
+</pre></div>
+</div>
+<p>and</p>
+<blockquote>
+<div><div class="figure align-center">
+<img alt="_images/output.png" src="_images/output.png" />
+</div>
+<div class="figure align-center">
+<img alt="_images/results.png" src="_images/results.png" />
+</div>
+</div></blockquote>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>       .,,.
      ,<span class="p">;;</span>*<span class="p">;;;;</span>,
     .-<span class="s1">&#39;``;-&#39;</span><span class="o">)</span><span class="p">;;</span>.

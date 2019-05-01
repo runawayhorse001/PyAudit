@@ -56,10 +56,10 @@ Test
 .. code-block:: bash
 
 	cd PyAudit/test
-	python test1.py
+	python test.py
 
 
-``test1.py``
+``test.py``
 
 .. literalinclude:: ../test/test.py
      :language: python
