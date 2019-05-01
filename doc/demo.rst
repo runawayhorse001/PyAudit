@@ -29,7 +29,6 @@ This is a demo to show how to aduit ``pd.DataFrame`` using ``PyAudit``:
 	3   37   True    nonanginal     130   250  ...      3.5      3  0.0      normal   No
 	4   41  False    nontypical     130   204  ...      1.4      1  0.0      normal   No
 
-
 	[5 rows x 14 columns]
 	         feature data_type  min_digits  ...  zero_rate  pos_rate  neg_rate
 	Age          Age     int64           4  ...   0.000000  1.000000       0.0
