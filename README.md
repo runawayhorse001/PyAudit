@@ -24,13 +24,11 @@ Or you can istall the PyAudit from the repo:
 	pip install -r requirements.txt 
 	python setup.py install
 
-#### 3. uninstall 
-
-	pip uninstall PyAudit
-
-#### 4. test 
+#### 3. test 
 
 	cd PyAudit/test
 	python test.py
 
+#### 4. uninstall 
 
+	pip uninstall PyAudit
