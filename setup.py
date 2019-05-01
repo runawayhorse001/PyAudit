@@ -13,7 +13,7 @@ except IOError:
     requirements = []
 
 setup(name='PyAudit',
-	  install_requires=requirements,
+	    install_requires=requirements,
       version='1.0',
       description='Python Data Audit library',
       author='Wenqiang Feng and Ming Chen',
