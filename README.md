@@ -16,7 +16,7 @@ Or you can istall the PyAudit from the repo:
 
 #### 1. clone
 
-	git https://github.com/runawayhorse001/PyAudit.git
+	git clone https://github.com/runawayhorse001/PyAudit.git
 
 #### 2. install 
 

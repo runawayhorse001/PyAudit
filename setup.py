@@ -12,13 +12,23 @@ try:
 except IOError:
     requirements = []
 
+
 setup(name='PyAudit',
 	    install_requires=requirements,
-      version='1.0.1',
+      version='1.0.2',
       description='Python Data Audit library',
       author='Wenqiang Feng and Ming Chen',
       author_email='von198@gmail.com',
       url='https://github.com/runawayhorse001/PyAudit.git',
       packages=find_packages(),
-      long_description=long_description
+      long_description=long_description,
+      long_description_content_type="text/markdown",
+      license="MIT",
+      classifiers=[
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 2",
+        "Programming Language :: Python :: 3",
+      ],
+      include_package_data=True
      )
