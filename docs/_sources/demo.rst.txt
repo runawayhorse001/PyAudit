@@ -68,7 +68,11 @@ Auditing in one function
 
 	Process finished with exit code 0
 
+and 
 
+
+  .. figure:: images/results.png
+    :align: center   
 
 Auditing function by function 
 +++++++++++++++++++++++++++++
