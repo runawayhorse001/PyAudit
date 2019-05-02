@@ -1,11 +1,10 @@
 # PyAudit: Python Data Audit 
 
-![logo](https://github.com/runawayhorse001/PyAudit/blob/master/doc/images/logo.png)
-[![Foo](http://www.google.com.au/images/nav_logo7.png)](http://google.com.au/)
+[![logo](https://github.com/runawayhorse001/PyAudit/blob/master/doc/images/logo.png)](https://runawayhorse001.github.io/PyAudit/)
 
-![Pypi Version](https://img.shields.io/pypi/v/PyAudit.svg)
-![Build Status](https://travis-ci.org/rtfd/PyAudit.svg?branch=master)
-![License](https://img.shields.io/pypi/l/PyAudit.svg)
+[![Pypi Version](https://img.shields.io/pypi/v/PyAudit.svg)](https://pypi.org/project/PyAudit/)
+[![Build Status](https://travis-ci.org/rtfd/PyAudit.svg?branch=master)]
+[![License](https://img.shields.io/pypi/l/PyAudit.svg)](https://pypi.org/project/PyAudit/)
 
 This is our Python Data Audit library repositories.
 The ``API`` can be found at: https://runawayhorse001.github.io/PyAudit. 
