@@ -3,7 +3,7 @@
 [![logo](https://github.com/runawayhorse001/PyAudit/blob/master/doc/images/logo.png)](https://runawayhorse001.github.io/PyAudit/)
 
 [![Pypi Version](https://img.shields.io/pypi/v/PyAudit.svg)](https://pypi.org/project/PyAudit/)
-[![Build Status](https://travis-ci.org/rtfd/PyAudit.svg?branch=master)]
+[![Build Status](https://travis-ci.org/rtfd/PyAudit.svg?branch=master)](https://travis-ci.org/rtfd/PyAudit)
 [![License](https://img.shields.io/pypi/l/PyAudit.svg)](https://pypi.org/project/PyAudit/)
 
 This is our Python Data Audit library repositories.
