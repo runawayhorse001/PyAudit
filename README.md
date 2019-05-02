@@ -1,6 +1,7 @@
 # PyAudit: Python Data Audit 
 
 ![logo](https://github.com/runawayhorse001/PyAudit/blob/master/doc/images/logo.png)
+[![Foo](http://www.google.com.au/images/nav_logo7.png)](http://google.com.au/)
 
 ![Pypi Version](https://img.shields.io/pypi/v/PyAudit.svg)
 ![Build Status](https://travis-ci.org/rtfd/PyAudit.svg?branch=master)
