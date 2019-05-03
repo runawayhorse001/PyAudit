@@ -54,7 +54,7 @@ About the author
 Acknowledgement
 +++++++++++++++
 
-At here, I would like to thank **Weiyu Wang** at Missouri University of Science and Technology and 
+At here, Wenqiang Feng would like to thank **Weiyu Wang** at Missouri University of Science and Technology and 
 **Jiangtao (Lotto) Xie** at Purdue University for the unit testing and valuable disscussion.
 
 
