@@ -51,6 +51,11 @@ About the author
 
   The work of Wenqiang Feng was supported by the IMA, while working at IMA. However, any opinion, finding, and conclusions or recommendations expressed in this material are those of the author and do not necessarily reflect the views of the IMA, UTK and DST.
 
+Acknowledgement
++++++++++++++++
+
+At here, I would like to thank **Weiyu Wang** at Missouri University of Science and Technology and 
+**Jiangtao (Lotto) Xie** at Purdue University for the unit testing and valuable disscussion.
 
 
 Feedback and suggestions
