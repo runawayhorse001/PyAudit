@@ -21,7 +21,7 @@ This document is the |api| book for our PyAudit: Python Data Audit Library [PyAu
 
 The |api| assumes that the reader has a preliminary knowledge of ``python`` programing and ``Linux``. And this document is generated automatically by using `sphinx`_.
 
-.. _sphinx: http://sphinx.pocoo.org
+.. _sphinx: https://www.sphinx-doc.org/
 
 About the author
 ----------------
